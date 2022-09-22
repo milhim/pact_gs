@@ -2,7 +2,7 @@
     <div class="row p-2">
         <div class="col-md-6 p-2 offset-md-3 col-sm-10 offset-sm-1">
             <div class="card">
-                <div class="card-header">User Login Form</div>
+                <div class="card-header">Admin Login Form</div>
                 <div class="card-body">
                   
 
@@ -41,6 +41,9 @@
                     </form>
                 </div>
 
+                <div class="card-footer fs-6 ">
+                    Don't have an account? <a class="nav-link d-inline" href="/register">Register</a>
+                </div>
             </div>
         </div>
     </div>

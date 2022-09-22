@@ -21,6 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'Emp_number',
+        'username',
+        'phone',
+        'company',
+        'city',
+        'location',
     ];
 
     /**
@@ -41,4 +47,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pacts()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
