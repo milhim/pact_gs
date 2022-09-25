@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integerIncrements('Emp_number');
+            $table->integer('Emp_number');
             $table->string('name',50);
             $table->string('username',30)->unique();
             $table->string('phone',30)->unique();

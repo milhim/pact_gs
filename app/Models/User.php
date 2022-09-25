@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function pacts()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Pact::class);
     }
 }

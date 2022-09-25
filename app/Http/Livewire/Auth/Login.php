@@ -17,12 +17,12 @@ class Login extends Component
             'password' => 'required',
 
         ]);
-        $success = auth()->attempt([
+        $success = auth('web')->attempt([
             'email' => $this->email,
             'password' => $this->password,
         ], request()->has('remember'));
         if ($success) {
-            return redirect('/profile');
+            return redirect()->route('user.home');
         }
         redirect()->back();
     }

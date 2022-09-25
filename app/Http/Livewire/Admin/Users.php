@@ -7,7 +7,8 @@ use Livewire\Component;
 
 class Users extends Component
 {
-    protected $listeners = ['reRenderParent','userUpdated'];
+
+    protected $listeners = ['reRenderParent', 'userUpdated'];
 
     public $users;
     public User $user;
@@ -17,35 +18,31 @@ class Users extends Component
 
     public function showAddUserForm()
     {
-        
+
         $this->userForm = !$this->userForm;
         $this->editForm = false;
-
     }
     public function showEditForm(User $user)
     {
-        $this->user=$user;
+        $this->user = $user;
         $this->editForm = !$this->editForm;
         $this->userForm = false;
-
     }
-    
-public function delete(User $user){
-    $user->delete();
-    $this->mount();
 
-}
+    public function delete(User $user)
+    {
+        $user->delete();
+        $this->mount();
+    }
     public function userUpdated()
     {
         $this->mount();
         $this->editForm = !$this->editForm;
-
     }
     public function reRenderParent()
     {
         $this->mount();
         $this->userForm = !$this->userForm;
-
     }
 
     public function mount()

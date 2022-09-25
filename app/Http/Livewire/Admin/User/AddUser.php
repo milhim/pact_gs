@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class AddUser extends Component
 {
+
     public $name = '';
     public $email = '';
     public $password = '';

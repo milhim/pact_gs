@@ -14,7 +14,6 @@
         .btn-primary:hover {
             background-color: #4338CA;
         }
-      
     </style>
     <link rel="stylesheet" href="{{ asset('css/dashboard_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profile_style.css') }}">
@@ -28,30 +27,56 @@
     <nav class="navbar navbar-light bg-light p-3">
         <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
             <a class="navbar-brand" href="#">
-                Pact
+                {{ __('words.pact') }}
             </a>
             <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse"
                 data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
+        <ul class="navbar-nav">
 
-        <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    {{ Config::get('languages')[App::getLocale()] }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    @foreach (Config::get('languages') as $lang => $language)
+                        @if ($lang != App::getLocale())
+                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{ $language }}</a>
+                        @endif
+                    @endforeach
+                </div>
+            </li>
+
+        </ul>
+        <div class="col-2 d-flex align-items-center justify-content-evenly mt-3">
             <div class="dropdown">
-                @auth
+                @auth()
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-expanded="false">
-
                         {{ auth()->user()->name }}
-
                     </button>
                 @endauth
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                    <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                    @if (auth('webadmin')->user())
+                        <li>
+                            <a class="dropdown-item " href="{{ route('admin.logout') }}">{{ __('words.signout') }}</a>
+                        </li>
+                    @endif
+                    @if (auth('web')->user())
+                        <li>
+                            <a class="dropdown-item " href="{{ route('user.profile') }}">{{ __('words.profile') }}</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item " href="{{ route('user.logout') }}">{{ __('words.signout') }}</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
+
         </div>
     </nav>
 
@@ -60,7 +85,7 @@
 
 
 
-    
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -69,6 +94,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
     </script> @livewireScripts
+
 </body>
 
 </html>

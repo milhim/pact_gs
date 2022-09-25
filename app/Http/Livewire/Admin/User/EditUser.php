@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class EditUser extends Component
 {
+
 public User $user;
 
     public $name;
