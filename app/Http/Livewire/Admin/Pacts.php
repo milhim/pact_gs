@@ -26,6 +26,7 @@ class Pacts extends Component
         $this->mount();
     }
 
+
    
     public function pactUpdated()
     {

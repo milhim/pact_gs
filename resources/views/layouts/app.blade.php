@@ -29,12 +29,17 @@
             <a class="navbar-brand" href="#">
                 {{ __('words.pact') }}
             </a>
+            @auth('web')
+                    <a class="nav-link " href="{{ route('user.home') }}">{{ __('words.home') }}</a>
+            @endauth
             <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse"
                 data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <ul class="navbar-nav">
+
+
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"

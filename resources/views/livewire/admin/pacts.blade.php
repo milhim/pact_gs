@@ -31,8 +31,6 @@
                                             <th scope="col">{{ __('words.status') }}</th>
                                             <th scope="col">{{ __('words.users') }}</th>
                                             <th scope="col">{{ __('words.option') }}</th>
-
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -52,8 +50,6 @@
                                                         @endforeach
                                                     </ul>
                                                 </td>
-
-
                                                 <td>
                                                     <button wire:click='delete({{ $pact }})'
                                                         class="btn btn-danger">{{ __('words.deletePact') }}</button>
@@ -63,24 +59,17 @@
 
                                             </tr>
                                         @endforeach
-
-
                                     </tbody>
                                 </table>
                             </div>
-
-
                             <a href="#" class="btn btn-block btn-light">View all</a>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-12 col-xl-4">
                     <!-- Another widget will go here -->
                 </div>
             </div>
-
-
 
 
             <footer class="pt-5 d-flex justify-content-between">

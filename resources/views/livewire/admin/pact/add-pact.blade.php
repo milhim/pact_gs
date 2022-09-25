@@ -3,15 +3,15 @@
         <div class="col-md-6 p-2 offset-md-3 col-sm-10 offset-sm-1">
             <div class="card">
                 <div class="card-header">{{ __('words.addpact') }} <nav class="nav navbar">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a style="cursor: pointer" wire:click='showEnglishForm' class="nav-link" >English</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="cursor: pointer" wire:click='showArabicForm' class="nav-link" >العربية</a>
-                        </li>
-                    </ul>
-                       
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a style="cursor: pointer" wire:click='showEnglishForm' class="nav-link">English</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="cursor: pointer" wire:click='showArabicForm' class="nav-link">العربية</a>
+                            </li>
+                        </ul>
+
                 </div>
                 <div class="card-body">
 
@@ -19,8 +19,7 @@
 
                         <div class="form-group">
                             <label for="serialNumber">{{ __('words.serialNumber') }}</label>
-                            <input
-                                class="form-control  @error('serialNumber') border-danger border-2  @enderror"
+                            <input class="form-control  @error('serialNumber') border-danger border-2  @enderror"
                                 wire:model.lazy="serialNumber" type="text" id="serialNumber">
                             @error('serialNumber')
                                 <div class="text-danger fs-6">
@@ -30,17 +29,17 @@
                                 </div>
                             @enderror
                         </div>
-
                         <div class="form-group">
-                            <label for="users">{{ __('words.users') }}</label>
-                            <select wire:model="selectedUsers" multiple>
+                            <div class="row">
                                 @foreach ($users as $user)
-                                    @if ($user)
-                                        <option value="{{ $user->id }}">
-                                            {{ $user->Emp_number . '-' . $user->name }}</option>
-                                    @endif
+                                    <div class="form-group col-md-6">
+                                        <label for="{{ $user->id }}"
+                                            class="form-check-label">{{ $user->name }}</label>
+                                        <input wire:model.lazy="selectedUsers" id="{{ $user->id }}" type="checkbox"
+                                            class="form-check" value="{{ $user->id }}">
+                                    </div>
                                 @endforeach
-                            </select>
+                            </div>
                             @error('users')
                                 <div class="text-danger fs-6">
 
@@ -52,10 +51,8 @@
 
                         {{-- ---------------------  English form---------------- --}}
                         @if ($englishForm)
+                            <div class="english-form" >
 
-
-                            <div class="english-form">
-                      
                                 <div class="form-group">
                                     <label for="type">{{ __('words.type') }}</label>
                                     <input class="form-control  @error('type') border-danger border-2  @enderror"
@@ -138,8 +135,7 @@
                         @endif
                         {{-- ---------------------  Arabic form---------------- --}}
                         @if ($arabicForm)
-
-                            <div class="arabic-form">
+                            <div class="arabic-form" >
 
                                 <div class="form-group">
                                     <label for="type">{{ __('words.type') }}</label>

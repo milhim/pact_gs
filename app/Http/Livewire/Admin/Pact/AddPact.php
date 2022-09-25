@@ -68,10 +68,7 @@ class AddPact extends Component
             'ar_noteTwo' => 'required',
             'ar_accessoar' => 'required',
             'ar_status' => 'required',
-            
-
-            
-
+ 
         ]);
       $pact=  Pact::create([
             'serial_number' => $this->serialNumber,

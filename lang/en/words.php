@@ -1,49 +1,65 @@
 <?php
 
 return [
-    'pact'=>'Pact',
-    'profile'=>'Profile',
-    'signout'=>'Sign Out',
+    //Auth
+
+    'login' => 'Login',
+    'register' => 'Register',
+    'profile' => 'Profile',
+    'signout' => 'Sign Out',
+    //Admin
+    'admin' => 'Admin',
+    "Don't have an account?" => "Don't have an account?",
+    "Allready have an account?" => " Allready have an account?",
+    'save' => 'Save',
+
+   
+    'pact' => 'Pact',
     'users' => 'Users',
-    'pacts'=>'Pacts',
-    'banner'=>'Banner',
-    'name'=>'Name',
-    'email'=>'Email',
-    'username'=>'Username',
-    'phone'=>'Phone',
-    'company'=>'Company',
-    'city'=>'City',
-    'location'=>'Location',
-    'option'=>'Option',
-    'adduser'=>'Add User',
-    'editUser'=>'Edit',
-    'deleteUser'=>'Delete',
-    'empnumber'=>'Emp_Number',
-    'password'=>'Password',
-    'password_confirmation'=>'Password Confirmation',
+    'pacts' => 'Pacts',
+    'banner' => 'Banner',
+    'name' => 'Name',
+    'email' => 'Email',
+    'username' => 'Username',
+    'phone' => 'Phone',
+    'company' => 'Company',
+    'city' => 'City',
+    'location' => 'Location',
+    'option' => 'Option',
+    'adduser' => 'Add User',
+    'editUser' => 'Edit',
+    'deleteUser' => 'Delete',
+    'empnumber' => 'Emp_Number',
+    'password' => 'Password',
+    'password_confirmation' => 'Password Confirmation',
     //pacts
-    'addpact'=>'Add Pact',
-    'editPact'=>'Edit Pact ',
-    'deletePact'=>'Delete Pact',
-    'serialNumber'=>'Serial Number',
-    'type'=>'Type',
-    'model'=>'Model',
-    'accessoar'=>'Accessoar',
-    'noteOne'=>'First Note',
-    'noteTwo'=>'Second Note',
-    'status'=>'Status',
-
+    'addpact' => 'Add Pact',
+    'editPact' => 'Edit Pact ',
+    'deletePact' => 'Delete Pact',
+    'serialNumber' => 'Serial Number',
+    'type' => 'Type',
+    'model' => 'Model',
+    'accessoar' => 'Accessoar',
+    'noteOne' => 'First Note',
+    'noteTwo' => 'Second Note',
+    'status' => 'Status',
+    //Banner
+    'editBanner' => 'Edit Banner',
+    'bannerTitle' => 'Banner Title',
+    'bannerBody' => 'Banner Body ',
     //User--------------
-    'edit'=>'Edit',
-    'save'=>'Save',
-    'saveSuccess'=>'Saved Successful',
-    'myPacts'=>'My Pacts'
+    'user' => 'User',
+    'edit' => 'Edit',
+    'save' => 'Save',
+    'saveSuccess' => 'Saved Successful',
+    'myPacts' => 'My Pacts',
+    'home' => 'Home',
 
 
 
 
 
-    
+
 
 
 ];

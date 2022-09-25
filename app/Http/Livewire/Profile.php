@@ -37,15 +37,11 @@ class Profile extends Component
         ]);
         $this->saved = true;
         $this->editForm = !$this->editForm;
-        $this->render();
     }
     public function mount()
     {
         $this->phone = auth()->user()->phone;
         $this->email = auth()->user()->email;
-        $this->reset('password');
-        $this->reset('passwordConfirmation');
-
         $this->saved = false;
     }
     public function render()
