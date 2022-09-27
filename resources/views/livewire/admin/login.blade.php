@@ -29,17 +29,14 @@
                             @enderror
                         </div>
                         <div class="form-group my-2">
-                            <input type="submit" class="btn btn-primary form-control" value="{{ __("words.login") }}">
+                            <input type="submit" class="btn btn-primary form-control" value="{{ __('words.login') }}">
                         </div>
 
                     </form>
                 </div>
 
-                <div class="card-footer fs-6 ">
-                    {{ __("words.Don't have an account?") }}   <a class="nav-link d-inline" href="{{route('admin.register')}}">{{ __("words.register") }}</a>
-                </div>
+
             </div>
         </div>
     </div>
-</div>
 </div>

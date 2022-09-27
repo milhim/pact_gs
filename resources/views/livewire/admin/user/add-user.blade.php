@@ -1,6 +1,14 @@
 <div class="container p-2">
     <div class="row p-2">
-        <div class="col-md-6 p-2 offset-md-3 col-sm-10 offset-sm-1">
+        <div class="col-2">
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H6M12 5l-7 7 7 7" />
+                </svg>
+                {{ __('words.back') }}</a>
+        </div>
+        <div class="col-md-6 offset-md-1 offset-sm-1 p-2 col-sm-10 ">
             <div class="card">
                 <div class="card-header">{{ __('words.adduser') }}</div>
                 <div class="card-body">
@@ -140,20 +148,12 @@
                                 </div>
                             </div>
                         </div>
-
-
-
                         <div class="form-group my-2">
-                            <input type="submit" class="btn btn-primary form-control"
+                            <input  type="submit" class="btn btn-primary form-control"
                                 value="{{ __('words.adduser') }}">
                         </div>
-
-
-
                     </form>
-
                 </div>
-
             </div>
         </div>
     </div>

@@ -20,20 +20,21 @@ public User $user;
     public $location;
     public $phone;
     public $Emp_number;
+    public $passwordConfirmation = '';
 
     public function edit()
     {
 
         $data = $this->validate([
             'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:5',
-            'username' => 'required',
-            'phone' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:5|same:passwordConfirmation',
+            'username' => 'required|unique:users',
+            'phone' => 'required|unique:users',
             'company' => 'required',
             'city' => 'required',
             'location' => 'required',
-            'Emp_number' => 'required',
+            'Emp_number' => 'required|unique:users',
 
 
         ]);

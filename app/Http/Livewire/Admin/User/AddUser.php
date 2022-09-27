@@ -9,6 +9,7 @@ use Livewire\Component;
 class AddUser extends Component
 {
 
+
     public $name = '';
     public $email = '';
     public $password = '';
@@ -39,7 +40,7 @@ class AddUser extends Component
 
 
         ]);
-        User::create([
+        $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
@@ -50,10 +51,9 @@ class AddUser extends Component
             'location' => $this->location,
             'Emp_number' => $this->Emp_number,
         ]);
-        $this->emit('reRenderParent');
-
-        return redirect()->route('admin.dashboard');
-        $this->emit('reRenderParent');
+        if ($user) {
+            $this->emit('userAdded');
+        }
     }
     public function updatedEmail()
     {
@@ -67,6 +67,7 @@ class AddUser extends Component
     {
         return $this->validate(['username' => 'unique:users']);
     }
+   
     public function render()
     {
         return view('livewire.admin.user.add-user');

@@ -9,6 +9,7 @@ class Dashboard extends Component
 {
     //users variable
 
+    
     public $showUsers = true;
     public $showPacts = false;
     public $showBanner = false;

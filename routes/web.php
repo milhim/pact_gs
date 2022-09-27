@@ -3,7 +3,6 @@
 use App\Http\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Http\Livewire\Admin\Login as AdminLogin;
 use App\Http\Livewire\Admin\Pact\AddPact;
-use App\Http\Livewire\Admin\Register as AdminRegister;
 use App\Http\Livewire\Admin\User\AddUser;
 use App\Http\Livewire\Admin\Users;
 use App\Http\Livewire\Auth\Login;
@@ -26,7 +25,6 @@ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controller
 //Admin--------------
 Route::middleware('guest')->prefix('admin')->as('admin.')->group(function () {
 
-    Route::get('/register', AdminRegister::class)->name('register');
     Route::get('/login', AdminLogin::class)->name('login');
 });
 Route::middleware('auth:webadmin')->prefix('admin')->as('admin.')->group(function () {

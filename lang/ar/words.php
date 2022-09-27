@@ -11,6 +11,7 @@ return [
     "Don't have an account?" => "ليس لديك حساب؟",
     "Allready have an account?" => "لديك حساب مسبقاً؟",
     'save' => 'حفظ',
+    'back' => 'العودة للخلف',
 
     'pact' => 'العهد',
     'users' => 'المستخدمون',
@@ -28,6 +29,7 @@ return [
     'editUser' => 'تعديل بيانات المستخدم',
     'deleteUser' => 'حذف المستخدم',
     'empnumber' => 'رقم المستخدم',
+    'createdAt' => 'تاريخ الأضافة',
     'password' => 'كلمة المرور',
     'password_confirmation' => 'تأكيد كلمة المرور',
     //Pacts

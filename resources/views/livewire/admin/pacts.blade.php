@@ -4,16 +4,12 @@
             <a href="{{ route('admin.pact.add') }}" class="btn btn-block btn-primary">{{ __('words.addpact') }}</a>
         </div>
     </div>
-
     <div class="row ">
-
         <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
             @if ($editForm)
                 @livewire('admin.pact.edit-pact', ['pact' => $pact])
             @endif
-
             <div class="row">
-
                 <div class="col-12 mb-4">
                     <div class="card">
                         <h5 class="card-header">{{ __('words.pacts') }}</h5>
@@ -56,13 +52,11 @@
                                                     <button wire:click='showEditForm({{ $pact }})'
                                                         class="btn btn-secondary">{{ __('words.editPact') }}</button>
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="#" class="btn btn-block btn-light">View all</a>
                         </div>
                     </div>
                 </div>
@@ -70,23 +64,6 @@
                     <!-- Another widget will go here -->
                 </div>
             </div>
-
-
-            <footer class="pt-5 d-flex justify-content-between">
-                <span>Copyright © 2019-2020 <a href="https://themesberg.com">Themesberg</a></span>
-                <ul class="nav m-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" aria-current="page" href="#">Privacy Policy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Terms and conditions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Contact</a>
-                    </li>
-                </ul>
-            </footer>
         </main>
-
     </div>
 </div>

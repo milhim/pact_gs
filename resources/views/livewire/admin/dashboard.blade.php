@@ -3,14 +3,9 @@
 <div class="container-fluid">
     <div class="row">
         <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar collapse">
-
-
             <div class="position-sticky pt-md-5">
-
-
                 <ul class="nav flex-column">
-
-
+                   
                     <li class="nav-item">
                         <a wire:click='showUsers' class="nav-link" aria-current="page" href="#users">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -47,11 +42,10 @@
                         </a>
                 </ul>
             </div>
-
-
         </nav>
         <main class="col-md-12 ml-sm-auto px-md-4 py-4">
 
+        
             @if ($showUsers)
                 @livewire('admin.users')
             @endif
@@ -62,24 +56,6 @@
             @if ($showBanner)
                 @livewire('admin.banner')
             @endif
-
-
-
-
-            {{-- <footer class="pt-5 d-flex justify-content-between bg-dark fixed-bottom">
-                <ul class="nav m-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" aria-current="page" href="#">Privacy Policy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Terms and conditions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Contact</a>
-                    </li>
-                </ul>
-            </footer> --}}
         </main>
-
     </div>
 </div>

@@ -13,7 +13,8 @@ return [
     "Allready have an account?" => " Allready have an account?",
     'save' => 'Save',
 
-   
+    'back' => 'Back',
+
     'pact' => 'Pact',
     'users' => 'Users',
     'pacts' => 'Pacts',
@@ -30,6 +31,8 @@ return [
     'editUser' => 'Edit',
     'deleteUser' => 'Delete',
     'empnumber' => 'Emp_Number',
+    'createdAt' => 'Created At',
+
     'password' => 'Password',
     'password_confirmation' => 'Password Confirmation',
     //pacts
