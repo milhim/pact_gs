@@ -10,6 +10,8 @@ class Banner extends Component
     public $englishForm = true;
     public $arabicForm = false;
     public $addBanner = false;
+    public $bannerTable = true;
+
 
     public $en_bannerTitle = '';
     public $en_bannerBody = '';
@@ -36,7 +38,11 @@ class Banner extends Component
     public function showForms()
     {
         $this->addBanner = !$this->addBanner;
+        $this->bannerTable = !$this->bannerTable;
+
     }
+
+
     public function saveBanner()
     {
         $data = $this->validate([
@@ -57,6 +63,8 @@ class Banner extends Component
                     'bannerBody' => $this->ar_bannerBody,
                 ],
             ]);
+            session()->flash('bannerUpdated','Banner has been updated');
+
         } else {
             ModelsBanner::create([
                 'en' => [
@@ -68,6 +76,8 @@ class Banner extends Component
                     'bannerBody' => $this->ar_bannerBody,
                 ],
             ]);
+            session()->flash('bannerCreated','Banner has been Created');
+
         }
 
         $this->mount();
@@ -76,6 +86,8 @@ class Banner extends Component
     public function mount()
     {
         $this->addBanner = false;
+        $this->bannerTable = true;
+
         $this->banner = ModelsBanner::first();
         if($this->banner){
             $this->en_bannerBody=$this->banner->translate('en')->bannerBody;

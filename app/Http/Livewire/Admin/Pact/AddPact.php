@@ -93,7 +93,7 @@ class AddPact extends Component
             $pact->users()->attach($user);
         }
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.dashboard')->with( ['showP' =>true] );
     }
 
     public function mount()

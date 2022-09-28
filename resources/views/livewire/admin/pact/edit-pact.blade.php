@@ -1,6 +1,14 @@
 <div class="container p-2">
     <div class="row p-2">
-        <div class="col-md-6 p-2 offset-md-3 col-sm-10 offset-sm-1">
+        <div class="col-2">
+            <a href="{{ route('admin.dashboard.pacts') }}" class="btn btn-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H6M12 5l-7 7 7 7" />
+                </svg>
+                {{ __('words.back') }}</a>
+        </div>
+        <div class="col-md-6 offset-md-1 offset-sm-1 p-2 col-sm-10 ">
             <div class="card">
                 <div class="card-header">{{ __('words.addpact') }} <nav class="nav navbar">
                         <ul class="nav nav-tabs">
@@ -29,20 +37,24 @@
                                 </div>
                             @enderror
                         </div>
-                        <label class="form-label" for="users">{{ __('words.users') }}</label>
 
                         <div class="form-group">
                             <div class="row">
-                                @foreach ($users as $user)
-                                    <div class="form-group col-md-6">
-                                        <label for="{{ $user->id }}"
-                                            class="form-check-label">{{ $user->name }}</label>
-                                        <input wire:model="selectedUsers" id="{{ $user->id }}" type="checkbox"
-                                            class="form-check" value="{{ $user->id }}">
+                                <div class="form-group">
+                                    <div class="" wire:ignore>
+                                        <label for="select2">Users</label>
+                                        <select class="form-select pact" wire:model.defer='selectedUsers' id='select2'
+                                            multiple>
+                                            @foreach ($users as $user)
+                                                <option wire:key="user_{{ $user->id }}" value="{{ $user->id }}">
+                                                    {{ $user->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                @endforeach
+                                </div>
                             </div>
-                            @error('users')
+                            @error('selectedUsers')
                                 <div class="text-danger fs-6">
 
                                     <span>{{ $message }}</span>
@@ -59,7 +71,7 @@
                                     <label for="type">{{ __('words.type') }}</label>
                                     <input class="form-control  @error('type') border-danger border-2  @enderror"
                                         wire:model.lazy="en_type" type="text" id="type">
-                                    @error('type')
+                                    @error('en_type')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -72,7 +84,7 @@
                                     <label for="model">{{ __('words.model') }}</label>
                                     <input class="form-control @error('model') border-danger border-2  @enderror"
                                         wire:model.lazy="en_model" type="model" id="model">
-                                    @error('model')
+                                    @error('en_model')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -85,7 +97,7 @@
                                     <label for="accessoar ">{{ __('words.accessoar') }}</label>
                                     <input class="form-control @error('accessoar') border-danger border-2  @enderror"
                                         wire:model.lazy="en_accessoar" type="text" id="accessoar">
-                                    @error('accessoar')
+                                    @error('en_accessoar')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -97,7 +109,7 @@
                                     <label for="noteOne">{{ __('words.noteOne') }}</label>
                                     <input class="form-control @error('noteOne') border-danger border-2  @enderror"
                                         wire:model.lazy="en_noteOne" type="text" id="noteOne">
-                                    @error('noteOne')
+                                    @error('en_noteOne')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -110,7 +122,7 @@
                                     <label for="noteTwo">{{ __('words.noteTwo') }}</label>
                                     <input class="form-control @error('noteTwo') border-danger border-2  @enderror"
                                         wire:model.lazy="en_noteTwo" type="noteTwo" id="noteTwo">
-                                    @error('noteTwo')
+                                    @error('en_noteTwo')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -123,7 +135,7 @@
                                     <label for="status">{{ __('words.status') }}</label>
                                     <input class="form-control @error('status') border-danger border-2  @enderror"
                                         wire:model.lazy="en_status" type="status" id="status">
-                                    @error('status')
+                                    @error('en_status')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -143,7 +155,7 @@
                                     <label for="type">{{ __('words.type') }}</label>
                                     <input class="form-control  @error('type') border-danger border-2  @enderror"
                                         wire:model.lazy="ar_type" type="text" id="type">
-                                    @error('type')
+                                    @error('ar_type')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -156,7 +168,7 @@
                                     <label for="model">{{ __('words.model') }}</label>
                                     <input class="form-control @error('model') border-danger border-2  @enderror"
                                         wire:model.lazy="ar_model" type="model" id="model">
-                                    @error('model')
+                                    @error('ar_model')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -169,7 +181,7 @@
                                     <label for="accessoar ">{{ __('words.accessoar') }}</label>
                                     <input class="form-control @error('accessoar') border-danger border-2  @enderror"
                                         wire:model.lazy="ar_accessoar" type="text" id="accessoar">
-                                    @error('accessoar')
+                                    @error('ar_accessoar')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -181,7 +193,7 @@
                                     <label for="noteOne">{{ __('words.noteOne') }}</label>
                                     <input class="form-control @error('noteOne') border-danger border-2  @enderror"
                                         wire:model.lazy="ar_noteOne" type="text" id="noteOne">
-                                    @error('noteOne')
+                                    @error('ar_noteOne')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -194,7 +206,7 @@
                                     <label for="noteTwo">{{ __('words.noteTwo') }}</label>
                                     <input class="form-control @error('noteTwo') border-danger border-2  @enderror"
                                         wire:model.lazy="ar_noteTwo" type="noteTwo" id="noteTwo">
-                                    @error('noteTwo')
+                                    @error('ar_noteTwo')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -207,7 +219,7 @@
                                     <label for="status">{{ __('words.status') }}</label>
                                     <input class="form-control @error('status') border-danger border-2  @enderror"
                                         wire:model.lazy="ar_status" type="status" id="status">
-                                    @error('status')
+                                    @error('ar_status')
                                         <div class="text-danger fs-6">
 
                                             <span>{{ $message }}</span>
@@ -222,7 +234,7 @@
 
                         <div class="form-group my-2">
                             <input type="submit" class="btn btn-primary form-control"
-                                value="{{ __('words.addpact') }}">
+                                value="{{ __('words.editPact') }}">
                         </div>
 
                     </form>
@@ -233,3 +245,26 @@
         </div>
     </div>
 </div>
+
+<select multiple id="selectedUsers" class="" style="display: none">
+    @foreach ($users as $user)
+        @if ($pact->users->contains($user))
+            <option value="" selected>{{ $user->name }}</option>
+        @endif
+    @endforeach
+</select>
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#select2').select2();
+            $('#select2').on('change', function(e) {
+                var data = $('#select2').select2("val");
+                @this.set('selectedUsers', data);
+            });
+
+
+
+
+        });
+    </script>
+@endpush

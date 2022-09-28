@@ -27,14 +27,14 @@ public User $user;
 
         $data = $this->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required|min:5|same:passwordConfirmation',
-            'username' => 'required|unique:users',
-            'phone' => 'required|unique:users',
+            'username' => 'required',
+            'phone' => 'required',
             'company' => 'required',
             'city' => 'required',
             'location' => 'required',
-            'Emp_number' => 'required|unique:users',
+            'Emp_number' => 'required',
 
 
         ]);
@@ -51,6 +51,7 @@ public User $user;
         ]);
 
         $this->emit('userUpdated');
+        
 
     }
 

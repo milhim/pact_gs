@@ -52,6 +52,8 @@ class EditPact extends Component
     {
         $data = $this->validate([
             'serialNumber' => 'required',
+            'selectedUsers' => 'required',
+
             'en_type' => 'required',
             'en_model' => 'required',
             'en_noteOne' => 'required',
@@ -90,16 +92,18 @@ class EditPact extends Component
         ]);
         $this->pact->users()->detach();
         foreach ($this->selectedUsers as $user) {
-          
+        
             $this->pact->users()->attach($user);
         }
-        $this->emit('pactUpdated');
+        return redirect()->route('admin.dashboard')->with( ['pactUpdated' =>true] );
+
+
     }
 
-    public function mount()
+    public function mount(Pact $pact)
     {
         $this->users = User::all();
-
+        $this->pact=$pact;
         $this->serialNumber = $this->pact->serial_number;
 
         //en

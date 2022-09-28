@@ -24,7 +24,8 @@ class Login extends Component
         if ($success) {
             return redirect()->route('admin.dashboard');
         }
-        redirect()->route('admin.login');
+        $this->addError('wrongAdminInfo', 'Wrong email or password');
+        return redirect()->back();
     }
     public function render()
     {

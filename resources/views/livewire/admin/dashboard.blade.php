@@ -5,9 +5,11 @@
         <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-md-5">
                 <ul class="nav flex-column">
-                   
+
+              
+
                     <li class="nav-item">
-                        <a wire:click='showUsers' class="nav-link" aria-current="page" href="#users">
+                        <a href="{{route('admin.dashboard.users')}}"  class="nav-link" aria-current="page" href="#users">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -20,7 +22,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a wire:click='showPacts' class="nav-link" href="#">
+                        <a href="{{route('admin.dashboard.pacts')}}" class="nav-link" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-file">
@@ -31,7 +33,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a wire:click='showBanner' class="nav-link" href="#">
+                        <a href="{{route('admin.dashboard.banner')}}" class="nav-link" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -45,17 +47,9 @@
         </nav>
         <main class="col-md-12 ml-sm-auto px-md-4 py-4">
 
-        
-            @if ($showUsers)
-                @livewire('admin.users')
-            @endif
-            @if ($showPacts)
-                @livewire('admin.pacts')
-            @endif
 
-            @if ($showBanner)
-                @livewire('admin.banner')
-            @endif
+           
+           
         </main>
     </div>
 </div>

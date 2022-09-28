@@ -45,7 +45,7 @@ class Users extends Component
         $this->mount();
 
         $user->delete();
-        session()->flash('userDeleted', 'Post successfully Deleted.');
+        session()->flash('userDeleted', 'User successfully Deleted.');
     }
     public function userAdded()
     {
@@ -53,7 +53,7 @@ class Users extends Component
 
         $this->addUserForm = !$this->addUserForm;
         $this->usersTable = true;
-        session()->flash('userAdded', 'Post successfully Added.');
+        session()->flash('userAdded', 'User successfully Added.');
 
     }
 
@@ -62,7 +62,7 @@ class Users extends Component
         $this->mount();
         $this->editForm = !$this->editForm;
         $this->usersTable = true;
-        session()->flash('userUpdated', 'Post successfully updated.');
+        session()->flash('userUpdated', 'User successfully updated.');
     }
 
 
@@ -76,7 +76,7 @@ class Users extends Component
     {
         return view(
             'livewire.admin.users',
-            ['usersPaginate' => User::paginate(4),]
+            ['usersPaginate' => User::orderBy('created_at','desc')->paginate(4),]
         );
     }
 }

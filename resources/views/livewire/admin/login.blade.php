@@ -4,16 +4,18 @@
             <div class="card">
                 <div class="card-header">{{ __('words.login') }}</div>
                 <div class="card-body">
+                    @if ($errors->has('wrongAdminInfo'))
+                        <div class="alert alert-danger">
+                            Wrong email or password
+                        </div>
+                    @endif
+
                     <form wire:submit.prevent='login'>
                         <div class="form-group">
                             <label for="email">{{ __('words.email') }}</label>
-                            <input class="form-control @error('name') border-danger border-2  @enderror"
-                                wire:model="email" type="email" id="email" name="email">
-                            @error('email')
-                                <div class="text-danger fs-6">
-                                    <span>{{ $message }}</span>
-                                </div>
-                            @enderror
+                            <input class="form-control " wire:model="email" type="email" id="email"
+                                name="email">
+
                         </div>
 
                         <div class="form-group">

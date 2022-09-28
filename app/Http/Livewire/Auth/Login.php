@@ -24,7 +24,8 @@ class Login extends Component
         if ($success) {
             return redirect()->route('user.home');
         }
-        redirect()->back();
+        $this->addError('wrongUserInfo', 'Wrong email or password');
+        return redirect()->back();
     }
     public function render()
     {
