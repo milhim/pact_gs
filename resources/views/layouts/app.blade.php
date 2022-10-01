@@ -1,49 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" @if (app()->getLocale() === 'ar') dir="rtl" @endif>
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    @if (app()->getLocale() === 'en')
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    @endif
+
+    <link rel="stylesheet" href="{{ asset('css/dashboard_style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    @if (app()->getLocale() === 'ar')
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.min.css') }}">
+    @endif
 
     <style>
         .btn-primary {
-            border-color: #312E81;
-            background-color: #5B21B6;
+            font-size: 18px;
+            border-color: #78c4cc9c;
+            background-color: #43a9b4;
+            font-weight: bold;
+            color: rgb(231, 236, 236)
         }
 
         .btn-primary:hover {
             background-color: #4338CA;
         }
     </style>
-    <link rel="stylesheet" href="{{ asset('css/dashboard_style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/profile_style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @livewireStyles
+
+    <title>{{ __('words.pact') }}</title>
 
 </head>
 
-<body>
-
+<body
+    style="  background: rgb(94, 124, 201) !important;
+background: linear-gradient(90deg, rgba(94, 124, 201, 1) 34%, rgba(169, 220, 227, 1) 100%) !important;">
 
     <nav class="navbar navbar-light bg-light p-2 mb-4 ">
-        <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+        <div class="d-flex  col-md-4 col-sm-4 mb-2 flex-wrap flex-md-nowrap justify-content-between">
             <a class="navbar-brand" href="#">
                 {{ __('words.pact') }}
             </a>
             @auth('web')
                 <a class="nav-link " href="{{ route('user.home') }}">{{ __('words.home') }}</a>
             @endauth
-            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse"
-                data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            @auth('webadmin')
+                <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse"
+                    data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            @endauth
+
         </div>
-        <ul class="navbar-nav">
-
-
-
+        <ul class="navbar-nav col-md-3 col-sm-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -52,14 +64,16 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     @foreach (Config::get('languages') as $lang => $language)
                         @if ($lang != App::getLocale())
-                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{ $language }}</a>
+                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                                {{ $language }}</a>
                         @endif
                     @endforeach
                 </div>
             </li>
 
         </ul>
-        <div class="col-2 d-flex align-items-center justify-content-evenly mt-3">
+
+        <div class="col-md-3  col-sm-3 d-flex align-items-center justify-content-evenly mt-3">
             <div class="dropdown">
                 @auth()
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -69,24 +83,24 @@
                 @endauth
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    @if (auth('webadmin')->user())
+                    @auth('webadmin')
                         <li>
                             <a class="dropdown-item " href="{{ route('admin.logout') }}">{{ __('words.signout') }}</a>
                         </li>
-                    @endif
-                    @if (auth('web')->user())
+                    @endauth
+                    @auth('web')
                         <li>
                             <a class="dropdown-item " href="{{ route('user.profile') }}">{{ __('words.profile') }}</a>
                         </li>
                         <li>
                             <a class="dropdown-item " href="{{ route('user.logout') }}">{{ __('words.signout') }}</a>
                         </li>
-                    @endif
+                    @endauth
                 </ul>
             </div>
-
         </div>
     </nav>
+
 
 
     {{ $slot }}
@@ -105,9 +119,10 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
     </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>    <!-- MDB -->
-    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> <!-- MDB -->
+
     @stack('scripts')
+    @livewireScripts
 
 </body>
 

@@ -8,6 +8,9 @@ use Livewire\Component;
 
 class EditPact extends Component
 {
+
+    public $u;
+
     public $englishForm = true;
     public $arabicForm = false;
 
@@ -43,16 +46,16 @@ class EditPact extends Component
     public $ar_status = '';
     //
     public Pact $pact;
-    public  $selectedUsers = [];
+    public  $selectedUsers;
 
     public  $users;
-
+    public $selected=array();
 
     public function update()
     {
         $data = $this->validate([
             'serialNumber' => 'required',
-            'selectedUsers' => 'required',
+            'selected' => 'required',
 
             'en_type' => 'required',
             'en_model' => 'required',
@@ -91,20 +94,23 @@ class EditPact extends Component
             ],
         ]);
         $this->pact->users()->detach();
-        foreach ($this->selectedUsers as $user) {
-        
-            $this->pact->users()->attach($user);
+        foreach ($this->selected as $user_id) {
+
+            $this->pact->users()->attach($user_id);
         }
-        return redirect()->route('admin.dashboard')->with( ['pactUpdated' =>true] );
-
-
+        return redirect()->route('admin.dashboard.pacts')->with(['pactUpdated' => true]);
     }
 
     public function mount(Pact $pact)
     {
         $this->users = User::all();
-        $this->pact=$pact;
+        $this->pact = $pact;
         $this->serialNumber = $this->pact->serial_number;
+
+        $this->selectedUsers = $this->pact->users;
+        foreach ($this->selectedUsers as $user) {
+            array_push($this->selected, $user->id); 
+        }
 
         //en
         $this->en_type = $this->pact->translate('en')->type;
@@ -121,6 +127,8 @@ class EditPact extends Component
         $this->ar_noteTwo = $this->pact->translate('ar')->noteTwo;
         $this->ar_accessoar = $this->pact->translate('ar')->accessoar;
         $this->ar_status = $this->pact->translate('ar')->status;
+
+        
     }
     public function render()
     {

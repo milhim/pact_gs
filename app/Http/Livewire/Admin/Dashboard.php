@@ -13,15 +13,8 @@ class Dashboard extends Component
     public $showP;
   
     public function mount(){
-        $showP=Session::get('showP');
-        if($showP){
-            $this->showPacts();
-        }
-        $pactUpdated=Session::get('pactUpdated');
-        if($pactUpdated){
-            $this->showPacts();
-        }
-
+        Session::get('showP');
+        Session::get('pactUpdated');
     }
     
     public function render()

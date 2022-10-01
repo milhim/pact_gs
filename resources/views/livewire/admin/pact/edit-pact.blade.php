@@ -38,23 +38,19 @@
                             @enderror
                         </div>
 
+           
                         <div class="form-group">
-                            <div class="row">
-                                <div class="form-group">
-                                    <div class="" wire:ignore>
-                                        <label for="select2">Users</label>
-                                        <select class="form-select pact" wire:model.defer='selectedUsers' id='select2'
-                                            multiple>
-                                            @foreach ($users as $user)
-                                                <option wire:key="user_{{ $user->id }}" value="{{ $user->id }}">
-                                                    {{ $user->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                            <div wire:ignore>
+                                <label for="select2Eidt">Users</label>
+                                <select wire:model='selected' class="form-select pact" id='select2Eidt' multiple>
+                                    @foreach ($users as $user)
+                                        <option  value="{{ $user->id }}">
+                                            {{ $user->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
-                            @error('selectedUsers')
+                            @error('selected')
                                 <div class="text-danger fs-6">
 
                                     <span>{{ $message }}</span>
@@ -246,25 +242,17 @@
     </div>
 </div>
 
-<select multiple id="selectedUsers" class="" style="display: none">
-    @foreach ($users as $user)
-        @if ($pact->users->contains($user))
-            <option value="" selected>{{ $user->name }}</option>
-        @endif
-    @endforeach
-</select>
+
+
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('#select2').select2();
-            $('#select2').on('change', function(e) {
-                var data = $('#select2').select2("val");
-                @this.set('selectedUsers', data);
+            
+            $('#select2Eidt').select2();
+            $('#select2Eidt').on('change', function(e) {
+                var data = $('#select2Eidt').select2("val");
+                @this.set('selected', data);
             });
-
-
-
-
         });
     </script>
 @endpush

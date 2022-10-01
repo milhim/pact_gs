@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 //Admin--------------
 Route::middleware('guest')->prefix('admin')->as('admin.')->group(function () {

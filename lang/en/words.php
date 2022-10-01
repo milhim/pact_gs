@@ -58,7 +58,17 @@ return [
     'myPacts' => 'My Pacts',
     'home' => 'Home',
 
-
+// //validation
+// 'userNameError'=>" The name field is required.",
+// "userPhoneError"=>" The phone field is required. ",
+// "userUserNameError"=>" The username field is required. ",
+// "userLocationError"=>" The location field is required. ",
+// "userCityError"=>" The City field is required. ",
+// "userEmailError"=>" The Email field is required. ",
+// "userCompanyError"=>" The Company field is required. ",
+// "userEmpNumberError"=>" The EmpNumber field is required. ",
+// "userPasswordError1"=>" The password field is required. ",
+// "userPasswordError2"=>" The password field is required. ",
 
 
 
