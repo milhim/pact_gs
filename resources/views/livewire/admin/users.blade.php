@@ -1,22 +1,16 @@
+@section('title',__('words.users'))
+
 <div class="container-fluid">
-
-
-
-    <div class="row">
-
-
-    </div>
-
     <div class="row ">
-        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar collapse" @if(app()->getLocale()==='ar') style="margin-top: -150px" @endif>
+        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar collapse"
+            @if (app()->getLocale() === 'ar') style="margin-top: -150px" @endif>
             <div class="position-sticky pt-md-5">
                 <ul class="nav flex-column">
-
                     <li class="nav-item">
-                        <a href="#" style="background-color: rgb(94, 124, 201)" class="nav-link p-2 fs-5"
-                            aria-current="page" href="#users">
+                        <a href="#" style="background-color: rgb(94, 124, 201);color: white"
+                            class="nav-link " aria-current="page" href="#users">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
@@ -62,8 +56,8 @@
 
             @if ($usersTable)
                 <div class="col-md-3 col-sm-5 ">
-                    <button wire:click='showAddUserForm' class="btn btn-primary">{{ __('words.adduser') }} <i
-                            class="fa fa-user-plus"></i> </button>
+                    <button wire:click='showAddUserForm' class="btn btn-primary"><i
+                        class="fa fa-user-plus"></i> {{ __('words.adduser') }}  </button>
                 </div>
                 <div class="row mt-2">
                     <div class="col-12 mb-4">
@@ -75,7 +69,7 @@
                                     @if (session()->has('userAdded'))
                                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                                             <strong>User Successfully Added</strong>
-                                            <button type="button" class="btn" data-bs-dismiss="alert"
+                                            <button type="button" class="btn btnClose" data-bs-dismiss="alert"
                                                 aria-label="Close"><i class="fa fa-close"></i> </button>
                                         </div>
                                     @endif
@@ -83,7 +77,7 @@
                                     @if (session()->has('userUpdated'))
                                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                                             <strong>User Successfully Updated</strong>
-                                            <button type="button" class="btn" data-bs-dismiss="alert"
+                                            <button type="button" class="btn btnClose" data-bs-dismiss="alert"
                                                 aria-label="Close"><i class="fa fa-close"></i> </button>
                                         </div>
                                     @endif
@@ -91,7 +85,7 @@
                                     @if (session()->has('userDeleted'))
                                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                             <strong>User Successfully Deleted</strong>
-                                            <button type="button" class="btn" data-bs-dismiss="alert"
+                                            <button type="button" class="btn btnClose" data-bs-dismiss="alert"
                                                 aria-label="Close"><i class="fa fa-close"></i> </button>
                                         </div>
                                     @endif
@@ -144,11 +138,11 @@
                                                         <div class="d-flex justify-content-between">
 
                                                             <button wire:click='delete({{ $user }})'
-                                                                class="btn btn-danger mr-2"> <i class="fa fa-trash">
+                                                                class="btn btn-danger mr-2 option-btn"> <i class="fa fa-trash">
                                                                 </i>
                                                             </button>
                                                             <button wire:click='showEditForm({{ $user }})'
-                                                                class="btn btn-primary"><i
+                                                                class="btn btn-primary option-btn"><i
                                                                     class="fa fa-edit"></i></button>
                                                         </div>
                                                     </td>

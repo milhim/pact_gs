@@ -8,36 +8,40 @@ use Livewire\Component;
 class Profile extends Component
 {
 
-    public $phone = '';
-    public $email = '';
-    public $password='';
-    public $passwordConfirmation='';
+    public $phone ;
+    public $email ;
+    public $password;
+    public $passwordConfirmation;
 
 
     public $saved = false;
-    public $editForm = false;
 
 
-    public function showEditForm()
-    {
-        $this->editForm = !$this->editForm;
-    }
   
-    public function update()
+    public function updateInfo()
     {
         $data = $this->validate([
             'email' => 'required|email',
             'phone' => 'required',
-            'password' => 'required|min:5|same:passwordConfirmation',
         ]);
         auth('web')->user()->update([
             'email'=>$this->email,
             'phone'=>$this->phone,
-            'password'=>Hash::make($this->password),
         ]);
         $this->saved = true;
-        $this->editForm = !$this->editForm;
+        $this->emit('closeModal');
     }
+    public function updatePass()
+{
+    $data = $this->validate([
+        'password' => 'required|min:5|same:passwordConfirmation',
+    ]);
+    auth('web')->user()->update([
+        'password'=>Hash::make($this->password),
+    ]);
+    $this->saved = true;
+    $this->emit('closeModal');
+}
     public function mount()
     {
         $this->phone = auth()->user()->phone;
@@ -46,6 +50,7 @@ class Profile extends Component
     }
     public function render()
     {
+        
         return view('livewire.profile');
     }
 }

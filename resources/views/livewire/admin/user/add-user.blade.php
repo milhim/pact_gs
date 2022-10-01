@@ -1,15 +1,14 @@
+@section('title', __('words.addUser'))
+
 <div class="container p-2">
-    <div class="row p-2">
-        <div class="col-2">
+   
+    <div class="row p-2 mt-2">
+       
+        <div class="col-md-10 offset-md-1 offset-sm-1 p-2 col-sm-10 ">
             <a href="{{ route('admin.dashboard.users') }}" class="btn btn-warning">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 12H6M12 5l-7 7 7 7" />
-                </svg>
+                <i style="font-size: 14px" class="fa fa-arrow-left"></i>
                 {{ __('words.back') }}</a>
-        </div>
-        <div class="col-md-6 offset-md-1 offset-sm-1 p-2 col-sm-10 ">
-            <div class="card">
+            <div class="card mt-2">
                 <div class="card-header">{{ __('words.adduser') }}</div>
                 <div class="card-body">
                     <form wire:submit.prevent='register'>
@@ -57,8 +56,10 @@
 
                                     <div class="form-group">
                                         <label for="password ">{{ __('words.password') }}</label>
-                                        <input class="form-control @error('password') border-danger border-2  @enderror"
-                                            wire:model.lazy="password" type="password" id="password" name="password">
+                                        <input
+                                            class="form-control @error('password') border-danger border-2  @enderror"
+                                            wire:model.lazy="password" type="password" id="password"
+                                            name="password">
                                         @error('password')
                                             <div class="text-danger fs-6">
 
@@ -120,7 +121,8 @@
 
                                     <div class="form-group">
                                         <label for="location">{{ __('words.location') }}</label>
-                                        <input class="form-control @error('location') border-danger border-2  @enderror"
+                                        <input
+                                            class="form-control @error('location') border-danger border-2  @enderror"
                                             wire:model.lazy="location" type="location" id="location">
                                         @error('location')
                                             <div class="text-danger fs-6">
@@ -149,7 +151,7 @@
                             </div>
                         </div>
                         <div class="form-group my-2">
-                            <input  type="submit" class="btn btn-primary form-control"
+                            <input type="submit" class="btn btn-primary form-control"
                                 value="{{ __('words.adduser') }}">
                         </div>
                     </form>

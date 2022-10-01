@@ -7,11 +7,14 @@ return [
     'profile' => 'الملف الشخصي',
     'signout' => 'تسجيل الخروج',
     //defrent
+    'dashboard' => 'لوحة التحكم',
+
     'admin' => 'الأدمن',
     "Don't have an account?" => "ليس لديك حساب؟",
     "Allready have an account?" => "لديك حساب مسبقاً؟",
     'save' => 'حفظ',
     'back' => 'العودة للخلف',
+    'more' => 'رؤية المزيد',
 
     'pact' => 'العهد',
     'users' => 'المستخدمون',
@@ -26,7 +29,8 @@ return [
     'location' => 'الموقع',
     'option' => 'خيارات',
     'adduser' => 'إضافة مستخدم',
-    'editUser' => 'تعديل بيانات المستخدم',
+    'editUserInfo' => 'تعديل بيانات المستخدم',
+    'editUserPass' => 'تعديل كلمة السر',
     'deleteUser' => 'حذف المستخدم',
     'empnumber' => 'رقم المستخدم',
     'createdAt' => 'تاريخ الأضافة',
@@ -50,7 +54,7 @@ return [
     'bannerBody' => 'نص البنر',
 
     //User------
-    'user'=>'المستخدم',
+    'user' => 'المستخدم',
     'edit' => 'تعديل',
     'save' => 'حفظ',
     'saveSuccess' => 'تم الحفظ بنجاح',

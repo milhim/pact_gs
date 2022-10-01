@@ -1,65 +1,10 @@
 @section('profile_style')
 @endsection
+@section('title', __('words.profile'))
+
 <div>
     <div class="container bg-white mt-5 mb-5">
-        @if ($editForm)
-            <div class="card p-3 my-2">
-                <div class="card-header my-2">
-                    {{ __('words.editUser') }}
-                </div>
-                <div class="card-body my-3">
-                    <form wire:submit.prevent='update'>
-                        <div class="row my-2">
-                            <div class="col-md-12 my-2">
-                                <label class="labels">{{ __('words.phone') }}</label>
-                                <input wire:model.lazy='phone' type="text" class="form-control">
-                                @error('phone')
-                                    <div class="text-danger fs-6">
-
-                                        <span>{{ $message }}</span>
-
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 my-2">
-                                <label class="labels">{{ __('words.email') }}</label>
-                                <input wire:model.lazy='email' type="text" class="form-control">
-                                @error('email')
-                                    <div class="text-danger fs-6">
-
-                                        <span>{{ $message }}</span>
-
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 my-2">
-                                <label class="labels">{{ __('words.password') }}</label>
-                                <input wire:model.lazy='password' type="password" class="form-control">
-                                @error('password')
-                                    <div class="text-danger fs-6">
-
-                                        <span>{{ $message }}</span>
-
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 my-2">
-                                <label class="labels">{{ __('words.password_confirmation') }}</label>
-                                <input wire:model.lazy='passwordConfirmation' type="password" class="form-control">
-
-                            </div>
-
-                            <button class="btn btn-primary justify-content-end">{{ __('words.save') }}</button>
-                    </form>
-                </div>
-                <div class="card-footer">
-
-                </div>
-            </div>
-        @endif
-
         <div class="row">
-
             <div class="col-md-4 ">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
                         width="150px"
@@ -67,35 +12,41 @@
                         class="font-weight-bold">{{ auth()->user()->name }}</span><span
                         class="text-black-50">{{ auth()->user()->email }}</span><span>
                     </span>
-                    <button wire:click='showEditForm'
-                        class="mt-3 d-block btn btn-primary">{{ __('words.edit') }}</button>
+                    <!-- Button trigger modal -->
+                    <button class="mt-3 d-block btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#editUser">
+                        {{ __('words.edit') }}
+                    </button>
+
+
                 </div>
 
             </div>
             <div class="col-md-8">
                 <div class="row p-3 py-5 d-flex flex-col align-content-between">
-                    <ul class="list-group col-md-6 col-sm-6">
-                        <li class="list-group-item my-2 p-2">{{ __('words.empnumber') }}</li>
-                        <li class="list-group-item my-2 p-2">{{ __('words.username') }}</li>
-                        <li class="list-group-item my-2 p-2">{{ __('words.name') }}</li>
-                        <li class="list-group-item my-2 p-2">{{ __('words.email') }}</li>
-                        <li class="list-group-item my-2 p-2">{{ __('words.phone') }}</li>
-                        <li class="list-group-item my-2 p-2">{{ __('words.city') }}</li>
-                        <li class="list-group-item my-2 p-2">{{ __('words.location') }}</li>
-                        <li class="list-group-item my-2 p-2">{{ __('words.company') }}</li>
-                    </ul>
 
-                    <ul class="list-group col-md-6 col-sm-6">
-                        <li class="list-group-item my-2 p-2">{{ auth()->user()->Emp_number }}</li>
-                        <li class="list-group-item my-2 p-2">{{ auth()->user()->username }}</li>
-                        <li class="list-group-item my-2 p-2">{{ auth()->user()->name }}</li>
-                        <li class="list-group-item my-2 p-2">{{ auth()->user()->email }}</li>
-                        <li class="list-group-item my-2 p-2">{{ auth()->user()->phone }}</li>
-                        <li class="list-group-item my-2 p-2">{{ auth()->user()->city }}</li>
-                        <li class="list-group-item my-2 p-2">{{ auth()->user()->location }}</li>
-                        <li class="list-group-item my-2 p-2">{{ auth()->user()->company }}</li>
+                    <div class=" col-md-4 col-sm-6">
+                        <p class=" my-2 p-2">{{ __('words.name') }} :</p>
+                        <p class=" my-2 p-2">{{ __('words.username') }} :</p>
+                        <p class=" my-2 p-2">{{ __('words.email') }} :</p>
+                        <p class=" my-2 p-2">{{ __('words.phone') }} :</p>
+                        <p class=" my-2 p-2">{{ __('words.empnumber') }} :</p>
+                        <p class=" my-2 p-2">{{ __('words.city') }} :</p>
+                        <p class=" my-2 p-2">{{ __('words.location') }} :</p>
+                        <p class=" my-2 p-2">{{ __('words.company') }} :</p>
+                    </div>
 
-                    </ul>
+                    <div class=" col-md-6 col-sm-6">
+                        <p class=" my-2 p-2">{{ auth()->user()->name }}</p>
+                        <p class=" my-2 p-2">{{ auth()->user()->username }}</p>
+                        <p class=" my-2 p-2">{{ auth()->user()->email }}</p>
+                        <p class=" my-2 p-2">{{ auth()->user()->phone }}</p>
+                        <p class=" my-2 p-2">{{ auth()->user()->Emp_number }}</p>
+                        <p class=" my-2 p-2">{{ auth()->user()->city }}</p>
+                        <p class=" my-2 p-2">{{ auth()->user()->location }}</p>
+                        <p class=" my-2 p-2">{{ auth()->user()->company }}</p>
+
+                    </div>
                 </div>
                 <div>
                     @if ($saved)
@@ -107,6 +58,89 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div wire:ignore.self class="modal fade" id="editUser" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ __('words.editUserInfo') }}</h5>
+                    <i type="button" class="btn fa fa-close" data-bs-dismiss="modal" aria-label="Close"></i>
+                </div>
+                <div class="modal-body">
+                    <div class="card p-3 my-2">
+                        <div class="card-header">
+                            {{ __('words.editUserInfo') }}
+                        </div>
+                        <div class="card-body my-3">
+                            <form wire:submit.prevent='updateInfo'>
+                                <div class="form-group my-2">
+                                    <label for="phone" class="">{{ __('words.phone') }}</label>
+                                    <input id="phone" wire:model.lazy='phone' type="text" class="form-control">
+                                    @error('phone')
+                                        <div class="text-danger fs-6">
 
-    @livewire('banner')
+                                            <span>{{ $message }}</span>
+
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group my-2">
+                                    <label for="email" class="">{{ __('words.email') }}</label>
+                                    <input id="email" wire:model.lazy='email' type="text" class="form-control">
+                                    @error('email')
+                                        <div class="text-danger fs-6">
+
+                                            <span>{{ $message }}</span>
+
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <button type="submit"
+                                    class="btn btn-primary justify-content-end">{{ __('words.save') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card p-3 my-2 ">
+                        <div class="card-header">
+                            {{ __('words.editUserPass') }}
+                        </div>
+                        <div class="card-body my-3">
+                            <form wire:submit.prevent='updatePass'>
+                                <div class="form-group my-2">
+                                    <label for="password" class="">{{ __('words.password') }}</label>
+                                    <input id="password" wire:model.lazy='password' type="password" class="form-control">
+                                    @error('password')
+                                        <div class="text-danger fs-6">
+
+                                            <span>{{ $message }}</span>
+
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group my-2">
+                                    <label for="password_confirmation" class="">{{ __('words.password_confirmation') }}</label>
+                                    <input id="password_confirmation" wire:model.lazy='passwordConfirmation' type="password" class="form-control">
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-primary justify-content-end">{{ __('words.save') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@push('scripts')
+<script type="text/javascript">
+    window.livewire.on('closeModal', () => {
+        $('#editUser').modal('hide');
+    });
+</script>
+@endpush

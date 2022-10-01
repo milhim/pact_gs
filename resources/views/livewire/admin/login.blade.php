@@ -1,3 +1,5 @@
+@section('title',__('words.login'))
+
 <div class="container p-2">
     <div class="row p-2">
         <div class="col-md-6 p-2 offset-md-3 col-sm-10 offset-sm-1">

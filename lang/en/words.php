@@ -8,12 +8,15 @@ return [
     'profile' => 'Profile',
     'signout' => 'Sign Out',
     //Admin
+    'dashboard'=>'Dashboard',
     'admin' => 'Admin',
     "Don't have an account?" => "Don't have an account?",
     "Allready have an account?" => " Allready have an account?",
     'save' => 'Save',
 
     'back' => 'Back',
+    'more' => 'See More',
+
 
     'pact' => 'Pact',
     'users' => 'Users',
@@ -28,7 +31,8 @@ return [
     'location' => 'Location',
     'option' => 'Option',
     'adduser' => 'Add User',
-    'editUser' => 'Edit',
+    'editUserInfo' => 'Edit User Information',
+    'editUserPass' => 'Edit User Password',
     'deleteUser' => 'Delete',
     'empnumber' => 'Emp_Number',
     'createdAt' => 'Created At',

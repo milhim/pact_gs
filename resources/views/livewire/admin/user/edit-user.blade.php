@@ -1,18 +1,18 @@
+@section('title', __('words.editUser'))
+
 <div class="container p-2">
-    <div class="row p-2">
-        <div class="col-2">
+    
+    <div class="row p-2 mt-2">
+
+       
+        <div class="col-md-10 offset-md-1 offset-sm-1 p-2 col-sm-10 ">
             <a href="{{ route('admin.dashboard.users') }}" class="btn btn-warning">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 12H6M12 5l-7 7 7 7" />
-                </svg>
+                <i style="font-size: 14px" class="fa fa-arrow-left"></i>
                 {{ __('words.back') }}</a>
-        </div>
-        <div class="col-md-6 offset-md-1 offset-sm-1 p-2 col-sm-10 ">
-            <div class="card">
-                <div class="card-header">{{ __('words.editUser') }}</div>
+            <div class="card mt-2">
+                <div class="card-header">{{ __('words.editUserInfo') }}</div>
                 <div class="card-body">
-                    <form wire:submit.prevent='edit'>
+                    <form wire:submit.prevent='editUserInfo'>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -52,27 +52,6 @@
                                         </div>
                                     @enderror
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="password ">password</label>
-                                    <input class="form-control @error('password') border-danger border-2  @enderror"
-                                        wire:model.lazy="password" type="password" id="password" name="password">
-                                    @error('password')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="password_confirmation">{{ __('words.password_confirmation') }}</label>
-                                    <input class="form-control" wire:model.lazy="passwordConfirmation" type="password"
-                                        id="passwordConfirmation" name="passwordConfirmation">
-                                </div>
-                            </div>
-
-                            <div class="col-6">
                                 <div class="form-group">
                                     <label for="Emp_number">Emp_number</label>
                                     <input type="number"
@@ -86,6 +65,11 @@
                                         </div>
                                     @enderror
                                 </div>
+
+                            </div>
+
+                            <div class="col-6">
+
                                 <div class="form-group">
                                     <label for="phone">phone</label>
                                     <input class="form-control @error('phone') border-danger border-2  @enderror"
@@ -140,17 +124,44 @@
 
                             </div>
                         </div>
-
-
-
                         <div class="form-group my-2">
-                            <input type="submit" class="btn btn-primary form-control" value="Update User">
+                            <input type="submit" class="btn btn-primary form-control"
+                                value="{{ __('words.editUserInfo') }}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10 offset-md-1 offset-sm-1 p-2 col-sm-10 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    {{ __('words.editUserPass') }}
+                </div>
+                <div class="card-body">
+                    <form wire:submit.prevent='edituserPass'>
+                        <div class="form-group my-2">
+                            <label for="password ">password</label>
+                            <input class="form-control @error('password') border-danger border-2  @enderror"
+                                wire:model.lazy="password" type="password" id="password" name="password">
+                            @error('password')
+                                <div class="text-danger fs-6">
+
+                                    <span>{{ $message }}</span>
+
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="password_confirmation">{{ __('words.password_confirmation') }}</label>
+                            <input class="form-control" wire:model.lazy="passwordConfirmation" type="password"
+                                id="passwordConfirmation" name="passwordConfirmation">
                         </div>
 
+                        <input class="btn btn-primary" type="submit" value="{{ __('words.editUserPass') }}">
                     </form>
 
                 </div>
-
             </div>
         </div>
     </div>

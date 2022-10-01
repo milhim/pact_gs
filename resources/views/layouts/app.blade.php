@@ -16,22 +16,37 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.min.css') }}">
     @endif
 
+    <link rel="stylesheet" href="{{ asset('css/user/style.css') }}">
     <style>
         .btn-primary {
+            border-color: #3c95c99c;
+            background-color: #4390b4;
+            color: rgb(231, 236, 236);
             font-size: 18px;
-            border-color: #78c4cc9c;
-            background-color: #43a9b4;
-            font-weight: bold;
-            color: rgb(231, 236, 236)
         }
 
         .btn-primary:hover {
-            background-color: #4338CA;
+            border-color: #3c95c99c;
+            background-color: #5679c4;
+        }
+
+        .option-btn {
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+
+        .btnClose {
+            position: absolute;
+            bottom: 25px;
+            left: 0px;
+        }
+        main{
+            height: 600px;
         }
     </style>
     @livewireStyles
 
-    <title>{{ __('words.pact') }}</title>
+    <title>@yield('title')</title>
 
 </head>
 
@@ -40,44 +55,51 @@
 background: linear-gradient(90deg, rgba(94, 124, 201, 1) 34%, rgba(169, 220, 227, 1) 100%) !important;">
 
     <nav class="navbar navbar-light bg-light p-2 mb-4 ">
-        <div class="d-flex  col-md-4 col-sm-4 mb-2 flex-wrap flex-md-nowrap justify-content-between">
-            <a class="navbar-brand" href="#">
+        <div class="d-flex col-md-4 col-sm-4 mb-2 ">
+            <a class="navbar-brand" href="{{ route('user.home') }}">
                 {{ __('words.pact') }}
             </a>
-            @auth('web')
-                <a class="nav-link " href="{{ route('user.home') }}">{{ __('words.home') }}</a>
-            @endauth
-            @auth('webadmin')
-                <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse"
-                    data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            @endauth
+
+            <ul class="navbar-nav ml-4">
+
+                @auth('web')
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ route('user.home') }}">{{ __('words.home') }}</a>
+
+                    </li>
+                @endauth
+                @auth('webadmin')
+                    <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse"
+                        data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                @endauth
+            </ul>
 
         </div>
-        <ul class="navbar-nav col-md-3 col-sm-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    {{ Config::get('languages')[App::getLocale()] }}
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    @foreach (Config::get('languages') as $lang => $language)
-                        @if ($lang != App::getLocale())
-                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
-                                {{ $language }}</a>
-                        @endif
-                    @endforeach
-                </div>
-            </li>
 
-        </ul>
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdownMenuLink"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Config::get('languages')[App::getLocale()] }}
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="langBtn">
+
+                @foreach (Config::get('languages') as $lang => $language)
+                    @if ($lang != App::getLocale())
+                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                            {{ $language }}</a>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
 
         <div class="col-md-3  col-sm-3 d-flex align-items-center justify-content-evenly mt-3">
             <div class="dropdown">
                 @auth()
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-expanded="false">
+                    <button style="font-size: 18px" class="btn btn-secondary dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
                         {{ auth()->user()->name }}
                     </button>
                 @endauth
@@ -121,8 +143,10 @@ background: linear-gradient(90deg, rgba(94, 124, 201, 1) 34%, rgba(169, 220, 227
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> <!-- MDB -->
 
-    @stack('scripts')
+
     @livewireScripts
+    @stack('scripts')
+
 
 </body>
 
