@@ -7,7 +7,7 @@
        
         <div class="col-md-10 offset-md-1 offset-sm-1 p-2 col-sm-10 ">
             <a href="{{ route('admin.dashboard.users') }}" class="btn btn-warning">
-                <i style="font-size: 14px" class="fa fa-arrow-left"></i>
+                <i  class="fa fa-arrow-left"></i>
                 {{ __('words.back') }}</a>
             <div class="card mt-2">
                 <div class="card-header">{{ __('words.editUserInfo') }}</div>

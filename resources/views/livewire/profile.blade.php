@@ -1,5 +1,4 @@
-@section('profile_style')
-@endsection
+
 @section('title', __('words.profile'))
 
 <div>
@@ -24,7 +23,6 @@
             </div>
             <div class="col-md-8">
                 <div class="row p-3 py-5 d-flex flex-col align-content-between">
-
                     <div class=" col-md-4 col-sm-6">
                         <p class=" my-2 p-2">{{ __('words.name') }} :</p>
                         <p class=" my-2 p-2">{{ __('words.username') }} :</p>

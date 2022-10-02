@@ -1,0 +1,33 @@
+body{
+    background: rgb(94, 124, 201) !important;
+    background: linear-gradient(90deg, rgba(94, 124, 201, 1) 34%, rgba(169, 220, 227, 1) 100%) !important;
+
+}
+.name-btn{
+    font-size: 18px
+}
+.btn-primary {
+    border-color: #3c95c99c;
+    background-color: #4390b4;
+    color: rgb(231, 236, 236);
+    font-size: 18px;
+}
+
+.btn-primary:hover {
+    border-color: #3c95c99c;
+    background-color: #5679c4;
+}
+
+.option-btn {
+    padding: 6px 8px;
+    font-size: 12px;
+}
+
+.btnClose {
+    position: absolute;
+    bottom: 25px;
+    left: 0px;
+}
+main{
+    height: 600px;
+}

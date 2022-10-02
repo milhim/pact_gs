@@ -7,52 +7,24 @@
             integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     @endif
 
-    <link rel="stylesheet" href="{{ asset('css/dashboard_style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/profile_style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
+
+
+    <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @if (app()->getLocale() === 'ar')
         <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.min.css') }}">
     @endif
-
-    <link rel="stylesheet" href="{{ asset('css/user/style.css') }}">
-    <style>
-        .btn-primary {
-            border-color: #3c95c99c;
-            background-color: #4390b4;
-            color: rgb(231, 236, 236);
-            font-size: 18px;
-        }
-
-        .btn-primary:hover {
-            border-color: #3c95c99c;
-            background-color: #5679c4;
-        }
-
-        .option-btn {
-            padding: 6px 8px;
-            font-size: 12px;
-        }
-
-        .btnClose {
-            position: absolute;
-            bottom: 25px;
-            left: 0px;
-        }
-        main{
-            height: 600px;
-        }
-    </style>
     @livewireStyles
 
     <title>@yield('title')</title>
 
 </head>
 
-<body
-    style="  background: rgb(94, 124, 201) !important;
-background: linear-gradient(90deg, rgba(94, 124, 201, 1) 34%, rgba(169, 220, 227, 1) 100%) !important;">
+<body>
 
     <nav class="navbar navbar-light bg-light p-2 mb-4 ">
         <div class="d-flex col-md-4 col-sm-4 mb-2 ">
@@ -98,8 +70,8 @@ background: linear-gradient(90deg, rgba(94, 124, 201, 1) 34%, rgba(169, 220, 227
         <div class="col-md-3  col-sm-3 d-flex align-items-center justify-content-evenly mt-3">
             <div class="dropdown">
                 @auth()
-                    <button style="font-size: 18px" class="btn btn-secondary dropdown-toggle" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle name-btn" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-expanded="false">
                         {{ auth()->user()->name }}
                     </button>
                 @endauth

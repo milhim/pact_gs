@@ -7,7 +7,7 @@
                     <h1 class="header text-white">{{ $banner->translate(app()->getLocale())->bannerTitle }}</h1>
                 </div>
                 <div class="text-white" @if (app()->getLocale() == 'ar') style="text-align: right" @endif>
-                    <p class=" ">{{ $banner->translate(app()->getLocale())->bannerBody }}</p>
+                    <p >{{ $banner->translate(app()->getLocale())->bannerBody }}</p>
                 </div>
             @endif
         </footer>

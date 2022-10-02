@@ -1,5 +1,4 @@
-@section('dashboard_style')
-@endsection
+
 
 @section('title', __('words.dashboard'))
 

@@ -22,15 +22,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.dashboard.pacts') }}"
-                            style="background-color: rgb(94, 124, 201);color: white" class="nav-link" href="#">
+                        <a href="{{ route('admin.dashboard.pacts') }}" class="nav-link active" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <path d="M13 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V9l-7-7z" />
                                 <path d="M13 3v6h6" />
                             </svg>
-                            <span class="ml-2">{{ __('words.pacts') }}</span>
+                            <span class="ml-2 text-white">{{ __('words.pacts') }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -47,7 +46,7 @@
             </div>
         </nav>
 
-        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4" >
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
             <div class="col-md-3 col-sm-5 ">
                 <a href="{{ route('admin.pact.add') }}" class="btn btn-primary">{{ __('words.addpact') }} <i
                         class="fa fa-plus"></i> </a>

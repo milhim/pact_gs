@@ -7,8 +7,7 @@
             <div class="position-sticky pt-md-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a href="#" style="background-color: rgb(94, 124, 201);color: white"
-                            class="nav-link " aria-current="page" href="#users">
+                        <a href="#"  class="nav-link active " aria-current="page" href="#users">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -17,7 +16,7 @@
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
-                            <span class="ml-2">{{ __('words.users') }}</span>
+                            <span class="ml-2 text-white">{{ __('words.users') }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
