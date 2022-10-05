@@ -1,16 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai&display=swap');
 body{
-    background: rgb(94, 124, 201) !important;
-    background: linear-gradient(90deg, rgba(94, 124, 201, 1) 34%, rgba(169, 220, 227, 1) 100%) !important;
-
+    background: #fff;
+    font-family: 'Almarai', sans-serif;
+}
+.navbar{
+    background-color: #5679c4;
+}
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .nav-link,
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .nav-link:hover{
+    color:#fff;
+}
+.select2-container{
+    width:100% !important;
+}
+.nav-tabs .nav-link{
+    color:#fff;
+}
+.btn-warning{
+    color:#fff !important;
 }
 .name-btn{
     font-size: 18px
 }
 .btn-primary {
     border-color: #3c95c99c;
-    background-color: #4390b4;
-    color: rgb(231, 236, 236);
-    font-size: 18px;
+    background: linear-gradient(90deg, rgb(90 183 196) 34%, rgba(94, 124, 201,1) 100%) !important;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 14px;
 }
 
 .btn-primary:hover {
@@ -28,6 +47,23 @@ body{
     bottom: 25px;
     left: 0px;
 }
-main{
-    height: 600px;
+.card-body .btn.btn-warning{
+    color: #fff;
+    background: linear-gradient(90deg, rgb(90 183 196) 34%, rgba(94, 124, 201,1) 100%) !important;
+    border: none;
+    font-size: 12px;
+}
+.card-body .btn.btn-warning:focus{
+    border:none;
+}
+.form-control:focus{
+    border-color: #5679c4;
+}
+footer{
+    background: linear-gradient(90deg, rgb(90 183 196) 34%, rgba(94, 124, 201,1) 100%) !important;
+    border-radius: 4px;
+    margin-bottom:30px;
+}
+footer .header{
+    margin-bottom: 22px;
 }

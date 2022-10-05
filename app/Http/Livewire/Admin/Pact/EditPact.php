@@ -9,24 +9,7 @@ use Livewire\Component;
 class EditPact extends Component
 {
 
-    public $u;
 
-    public $englishForm = true;
-    public $arabicForm = false;
-
-    public function showEnglishForm()
-    {
-        app()->setlocale('en');
-        $this->englishForm = true;
-        $this->arabicForm = false;
-    }
-
-    public function showArabicForm()
-    {
-        app()->setlocale('ar');
-        $this->arabicForm = true;
-        $this->englishForm = false;
-    }
 
     public $serialNumber = '';
     //english pars
@@ -94,6 +77,7 @@ class EditPact extends Component
             ],
         ]);
         $this->pact->users()->detach();
+
         foreach ($this->selected as $user_id) {
 
             $this->pact->users()->attach($user_id);

@@ -1,9 +1,8 @@
 @section('title', __('words.pacts'))
 
-<div class="container-fluid p-2">
+<div class="container-fluid ">
     <div class="row my-2">
-        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar  collapse"
-            @if (app()->getLocale() === 'ar') style="margin-top: -150px" @endif>
+        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar  collapse">
             <div class="position-sticky pt-md-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -44,7 +43,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="col-md-6 offset-md-3 offset-sm-1 p-2 col-sm-8 ">
+        <div class="col-md-8 offset-md-3 offset-sm-1 p-2 col-sm-8 ">
             <a href="{{ route('admin.dashboard.pacts') }}" class="btn btn-warning mb-3">
                 <i  class="fa fa-arrow-left"></i>
                 {{ __('words.back') }}</a>
@@ -90,12 +89,15 @@
                     <p class=" my-2 p-2">{{ $pact->created_at }} |
                         {{ $pact->created_at->diffForHumans() }}</p>
                     <hr>
-                    <ul class="my-2 p-2 list-group list-group-item-info">
-                        @foreach ($pact->users as $user)
-                            <li class="list-group-item">
-                                {{ $user->name }}</li>
-                        @endforeach
-                    </ul>
+                    <p class="my-2 p-2">
+                        <ul class=" list-group list-group-item-info">
+                            @foreach ($pact->users as $user)
+                                <li class="list-group-item">
+                                    {{ $user->name }}</li>
+                            @endforeach
+                        </ul>
+                    </p>
+                    
                     <hr>
 
 

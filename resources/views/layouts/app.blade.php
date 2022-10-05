@@ -10,25 +10,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-
+    @if (app()->getLocale() === 'ar')
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.min.css') }}">
+    @endif
 
     <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    @if (app()->getLocale() === 'ar')
-        <link rel="stylesheet" href="{{ asset('css/bootstrap-rtl.min.css') }}">
-    @endif
+
     @livewireStyles
 
     <title>@yield('title')</title>
+    @if (app()->getLocale() === 'ar')
+        <style>
+            .sidebar {
+                right: 0;
+            }
+        </style>
+    @endif
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-light bg-light p-2 mb-4 ">
+    <nav class="navbar navbar-light p-2 mb-4 ">
         <div class="d-flex col-md-4 col-sm-4 mb-2 ">
-            <a class="navbar-brand" href="{{ route('user.home') }}">
+            <a class="navbar-brand nav-link" href="{{ route('user.home') }}">
                 {{ __('words.pact') }}
             </a>
 
@@ -51,7 +58,7 @@
         </div>
 
         <div class="dropdown">
-            <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdownMenuLink"
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Config::get('languages')[App::getLocale()] }}
             </a>

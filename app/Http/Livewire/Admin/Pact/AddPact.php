@@ -9,22 +9,7 @@ use Livewire\Component;
 
 class AddPact extends Component
 {
-    public $englishForm=true;
-    public $arabicForm=false;
-
-    public function showEnglishForm(){
-        app()->setlocale('en');
-        $this->englishForm=true;
-        $this->arabicForm=false;
- 
-    }
-
-    public function showArabicForm(){
-        app()->setlocale('ar');
-        $this->arabicForm=true;
-        $this->englishForm=false;
- 
-    }
+   
     public $serialNumber = '';
     //english pars
     public $en_type = '';
@@ -93,7 +78,7 @@ class AddPact extends Component
             $pact->users()->attach($user);
         }
 
-        return redirect()->route('admin.dashboard')->with( ['showP' =>true] );
+        return redirect()->route('admin.dashboard.pacts')->with( ['showP' =>true] );
     }
 
     public function mount()

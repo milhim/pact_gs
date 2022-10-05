@@ -1,10 +1,9 @@
 @section('title', __('words.editPact'))
 
-<div class="container-fluid p-2">
+<div class="container-fluid">
 
     <div class="row p-2 mt-2">
-        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar  collapse"
-            @if (app()->getLocale() === 'ar') style="margin-top: -150px" @endif>
+        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar  collapse">
             <div class="position-sticky pt-md-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -45,232 +44,231 @@
             </div>
         </nav>
 
-        <div class="col-md-8 offset-md-2 offset-sm-1 p-2 col-sm-8 ">
+        <div class="col-md-8 offset-md-3 offset-sm-1 p-2 col-sm-10 ">
             <a href="{{ route('admin.dashboard.pacts') }}" class="btn btn-warning">
                 <i class="fa fa-arrow-left"></i>
 
                 {{ __('words.back') }}</a>
             <div class="card mt-2">
-                <div class="card-header">{{ __('words.addpact') }} <nav class="nav navbar">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item">
-                                <a wire:click='showEnglishForm' class="nav-link">English</a>
-                            </li>
-                            <li class="nav-item">
-                                <a wire:click='showArabicForm' class="nav-link">العربية</a>
-                            </li>
-                        </ul>
-
+                <div class="card-header">{{ __('words.addpact') }} 
                 </div>
                 <div class="card-body">
 
                     <form wire:submit.prevent='update'>
 
-                        <div class="form-group">
-                            <label for="serialNumber">{{ __('words.serialNumber') }}</label>
-                            <input class="form-control  @error('serialNumber') border-danger border-2  @enderror"
-                                wire:model.lazy="serialNumber" type="text" id="serialNumber">
-                            @error('serialNumber')
-                                <div class="text-danger fs-6">
-
-                                    <span>{{ $message }}</span>
-
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="serialNumber">{{ __('words.serialNumber') }}</label>
+                                        <input class="form-control  @error('serialNumber') border-danger border-2  @enderror"
+                                            wire:model.lazy="serialNumber" type="text" id="serialNumber">
+                                        @error('serialNumber')
+                                            <div class="text-danger fs-6">
+            
+                                                <span>{{ $message }}</span>
+            
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    
                                 </div>
-                            @enderror
+                                <div class="col-md-12">
+                                    <div class="form-group my-2">
+                                        <div wire:ignore>
+                                            <label for="select2Eidt">Users</label>
+                                            <select wire:model='selected' class=" pact" id='select2Eidt' multiple>
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}">
+                                                        {{ $user->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        @error('selected')
+                                            <div class="text-danger fs-6">
+            
+                                                <span>{{ $message }}</span>
+            
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="english-form">
+            
+                                        <div class="form-group">
+                                            <label for="type">Type</label>
+                                            <input class="form-control  @error('type') border-danger border-2  @enderror"
+                                                wire:model.lazy="en_type" type="text" id="type">
+                                            @error('en_type')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="model">Model</label>
+                                            <input class="form-control @error('model') border-danger border-2  @enderror"
+                                                wire:model.lazy="en_model" type="model" id="model">
+                                            @error('en_model')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="accessoar ">Accessoar</label>
+                                            <input class="form-control @error('accessoar') border-danger border-2  @enderror"
+                                                wire:model.lazy="en_accessoar" type="text" id="accessoar">
+                                            @error('en_accessoar')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="noteOne">First Note</label>
+                                            <input class="form-control @error('noteOne') border-danger border-2  @enderror"
+                                                wire:model.lazy="en_noteOne" type="text" id="noteOne">
+                                            @error('en_noteOne')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="noteTwo">Second Note</label>
+                                            <input class="form-control @error('noteTwo') border-danger border-2  @enderror"
+                                                wire:model.lazy="en_noteTwo" type="noteTwo" id="noteTwo">
+                                            @error('en_noteTwo')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="status">Status</label>
+                                            <input class="form-control @error('status') border-danger border-2  @enderror"
+                                                wire:model.lazy="en_status" type="status" id="status">
+                                            @error('en_status')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+            
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6" dir="rtl">
+
+                                    <div class="arabic-form">
+            
+                                        <div class="form-group">
+                                            <label for="type">النوع</label>
+                                            <input class="form-control  @error('type') border-danger border-2  @enderror"
+                                                wire:model.lazy="ar_type" type="text" id="type">
+                                            @error('ar_type')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="model">الموديل</label>
+                                            <input class="form-control @error('model') border-danger border-2  @enderror"
+                                                wire:model.lazy="ar_model" type="model" id="model">
+                                            @error('ar_model')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="accessoar ">الأكسسوارات</label>
+                                            <input class="form-control @error('accessoar') border-danger border-2  @enderror"
+                                                wire:model.lazy="ar_accessoar" type="text" id="accessoar">
+                                            @error('ar_accessoar')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="noteOne">الملاحظة الأولى</label>
+                                            <input class="form-control @error('noteOne') border-danger border-2  @enderror"
+                                                wire:model.lazy="ar_noteOne" type="text" id="noteOne">
+                                            @error('ar_noteOne')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="noteTwo">الملاحظة الثانية</label>
+                                            <input class="form-control @error('noteTwo') border-danger border-2  @enderror"
+                                                wire:model.lazy="ar_noteTwo" type="noteTwo" id="noteTwo">
+                                            @error('ar_noteTwo')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="status">الحالة</label>
+                                            <input class="form-control @error('status') border-danger border-2  @enderror"
+                                                wire:model.lazy="ar_status" type="status" id="status">
+                                            @error('ar_status')
+                                                <div class="text-danger fs-6">
+            
+                                                    <span>{{ $message }}</span>
+            
+                                                </div>
+                                            @enderror
+                                        </div>
+            
+            
+                                    </div>
+                                </div>
+                                
+                            </div>
                         </div>
 
 
                         <div class="form-group my-2">
-                            <div wire:ignore>
-                                <label for="select2Eidt">Users</label>
-                                <select wire:model='selected' class=" pact" id='select2Eidt' multiple>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}">
-                                            {{ $user->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            @error('selected')
-                                <div class="text-danger fs-6">
-
-                                    <span>{{ $message }}</span>
-
-                                </div>
-                            @enderror
-                        </div>
-
-                        {{-- ---------------------  English form---------------- --}}
-                        @if ($englishForm)
-                            <div class="english-form">
-
-                                <div class="form-group">
-                                    <label for="type">{{ __('words.type') }}</label>
-                                    <input class="form-control  @error('type') border-danger border-2  @enderror"
-                                        wire:model.lazy="en_type" type="text" id="type">
-                                    @error('en_type')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="model">{{ __('words.model') }}</label>
-                                    <input class="form-control @error('model') border-danger border-2  @enderror"
-                                        wire:model.lazy="en_model" type="model" id="model">
-                                    @error('en_model')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="accessoar ">{{ __('words.accessoar') }}</label>
-                                    <input class="form-control @error('accessoar') border-danger border-2  @enderror"
-                                        wire:model.lazy="en_accessoar" type="text" id="accessoar">
-                                    @error('en_accessoar')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="noteOne">{{ __('words.noteOne') }}</label>
-                                    <input class="form-control @error('noteOne') border-danger border-2  @enderror"
-                                        wire:model.lazy="en_noteOne" type="text" id="noteOne">
-                                    @error('en_noteOne')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="noteTwo">{{ __('words.noteTwo') }}</label>
-                                    <input class="form-control @error('noteTwo') border-danger border-2  @enderror"
-                                        wire:model.lazy="en_noteTwo" type="noteTwo" id="noteTwo">
-                                    @error('en_noteTwo')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="status">{{ __('words.status') }}</label>
-                                    <input class="form-control @error('status') border-danger border-2  @enderror"
-                                        wire:model.lazy="en_status" type="status" id="status">
-                                    @error('en_status')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-
-                            </div>
-                        @endif
-                        {{-- ---------------------  Arabic form---------------- --}}
-                        @if ($arabicForm)
-                            <div class="arabic-form">
-
-                                <div class="form-group">
-                                    <label for="type">{{ __('words.type') }}</label>
-                                    <input class="form-control  @error('type') border-danger border-2  @enderror"
-                                        wire:model.lazy="ar_type" type="text" id="type">
-                                    @error('ar_type')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="model">{{ __('words.model') }}</label>
-                                    <input class="form-control @error('model') border-danger border-2  @enderror"
-                                        wire:model.lazy="ar_model" type="model" id="model">
-                                    @error('ar_model')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="accessoar ">{{ __('words.accessoar') }}</label>
-                                    <input class="form-control @error('accessoar') border-danger border-2  @enderror"
-                                        wire:model.lazy="ar_accessoar" type="text" id="accessoar">
-                                    @error('ar_accessoar')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="noteOne">{{ __('words.noteOne') }}</label>
-                                    <input class="form-control @error('noteOne') border-danger border-2  @enderror"
-                                        wire:model.lazy="ar_noteOne" type="text" id="noteOne">
-                                    @error('ar_noteOne')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="noteTwo">{{ __('words.noteTwo') }}</label>
-                                    <input class="form-control @error('noteTwo') border-danger border-2  @enderror"
-                                        wire:model.lazy="ar_noteTwo" type="noteTwo" id="noteTwo">
-                                    @error('ar_noteTwo')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="status">{{ __('words.status') }}</label>
-                                    <input class="form-control @error('status') border-danger border-2  @enderror"
-                                        wire:model.lazy="ar_status" type="status" id="status">
-                                    @error('ar_status')
-                                        <div class="text-danger fs-6">
-
-                                            <span>{{ $message }}</span>
-
-                                        </div>
-                                    @enderror
-                                </div>
-
-
-                            </div>
-                        @endif
-
-                        <div class="form-group my-2">
-                            <input type="submit" class="btn btn-primary form-control"
+                            <input type="submit" class="btn btn-primary"
                                 value="{{ __('words.editPact') }}">
                         </div>
 

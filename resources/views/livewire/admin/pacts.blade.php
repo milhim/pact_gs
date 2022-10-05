@@ -4,8 +4,7 @@
 
     <div class="row">
 
-        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar  collapse"
-            @if (app()->getLocale() === 'ar') style="margin-top: -150px" @endif>
+        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar  collapse">
             <div class="position-sticky pt-md-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -46,16 +45,14 @@
             </div>
         </nav>
 
-        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4 offset-md-2">
             <div class="col-md-3 col-sm-5 ">
                 <a href="{{ route('admin.pact.add') }}" class="btn btn-primary">{{ __('words.addpact') }} <i
                         class="fa fa-plus"></i> </a>
             </div>
             <div class="row mt-2">
                 <div class="col-12 mb-4">
-                    <div class="card">
-                        <h5 class="card-header">{{ __('words.pacts') }}</h5>
-                        <div class="card-body">
+                    <div class="card mt-5">
                             <div wire:loading>
 
                                 Processing ...
@@ -137,7 +134,6 @@
 
                             </div>
 
-                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-xl-4">

@@ -7,8 +7,7 @@ use Livewire\Component;
 
 class Banner extends Component
 {
-    public $englishForm = true;
-    public $arabicForm = false;
+  
     public $addBanner = false;
     public $bannerTable = true;
 
@@ -20,19 +19,7 @@ class Banner extends Component
     public $ar_bannerBody = '';
 
 
-    public function showEnglishForm()
-    {
-        app()->setlocale('en');
-        $this->englishForm = true;
-        $this->arabicForm = false;
-    }
-
-    public function showArabicForm()
-    {
-        app()->setlocale('ar');
-        $this->arabicForm = true;
-        $this->englishForm = false;
-    }
+   
     public $banner;
 
     public function showForms()

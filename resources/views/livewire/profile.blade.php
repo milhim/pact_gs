@@ -67,10 +67,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="card p-3 my-2">
-                        <div class="card-header">
+                        <div>
                             {{ __('words.editUserInfo') }}
                         </div>
-                        <div class="card-body my-3">
+                        <div class="card-body">
                             <form wire:submit.prevent='updateInfo'>
                                 <div class="form-group my-2">
                                     <label for="phone" class="">{{ __('words.phone') }}</label>
@@ -101,10 +101,10 @@
                         </div>
                     </div>
                     <div class="card p-3 my-2 ">
-                        <div class="card-header">
+                        <div>
                             {{ __('words.editUserPass') }}
                         </div>
-                        <div class="card-body my-3">
+                        <div class="card-body">
                             <form wire:submit.prevent='updatePass'>
                                 <div class="form-group my-2">
                                     <label for="password" class="">{{ __('words.password') }}</label>

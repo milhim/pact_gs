@@ -125,7 +125,7 @@
                             </div>
                         </div>
                         <div class="form-group my-2">
-                            <input type="submit" class="btn btn-primary form-control"
+                            <input type="submit" class="btn btn-primary"
                                 value="{{ __('words.editUserInfo') }}">
                         </div>
                     </form>

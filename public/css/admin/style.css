@@ -47,7 +47,7 @@
 .blocks{
   border: 1px #2652c0 solid;
   border-radius: 25px;
-  padding: 50px;
+  padding: 30px;
   color: #2652c0;
   background: #cbdddf;
   text-align: center;
@@ -55,6 +55,7 @@
   text-decoration: none;
   font-size: 22px;
   transition: 0.3s;
+  cursor: pointer;
 }
 .blocks:hover{
   transform: translateY(-10px);

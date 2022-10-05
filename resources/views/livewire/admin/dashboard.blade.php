@@ -1,12 +1,9 @@
-
-
 @section('title', __('words.dashboard'))
 
 
 <div class="container-fluid">
     <div class="row">
-        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar collapse"
-            @if (app()->getLocale() === 'ar') style="margin-top: -150px" @endif>
+        <nav id="sidebar" class="col-md-2 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-md-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -46,19 +43,20 @@
                 </ul>
             </div>
         </nav>
-        <main class="col-md-8 ml-sm-auto px-md-4 py-4" style="height: 600px">
-
-            <div class="row mt-5">
-                <a class="blocks col-md-4 col-sm-10 mx-md-3  my-sm-3 offset-sm-1"
-                    href="{{ route('admin.dashboard.users') }}">
-                    Users
-                </a>
-
-                <a class="blocks col-md-4 col-sm-10 mx-md-3  my-sm-3 offset-sm-1"
-                    href="{{ route('admin.dashboard.pacts') }}">
-                    Pacts
-                </a>
+        <main class="col-md-8 offset-md-4 offset-sm-0 p-2 col-sm-8 ">
+            <div class="container">
+                <div class="row">
+                        <a class=" blocks col-md-4 mx-md-3 col-sm-8 my-4" href="{{ route('admin.dashboard.users') }}">
+                            {{ __('words.users') }}
+                        </a>
+                        <a class=" blocks col-md-4 mx-md-3 col-sm-8 my-4" href="{{ route('admin.dashboard.pacts') }}">
+                            {{ __('words.pacts') }}
+                        </a>
+                </div>
             </div>
+
+
+
 
         </main>
     </div>

@@ -6,9 +6,7 @@
 
 }
 
-body {
-    background: var(--mainColor);
-}
+
 
 .form-control:focus {
     box-shadow: none;
