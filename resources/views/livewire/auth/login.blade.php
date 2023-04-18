@@ -8,7 +8,7 @@
                 <div class="card-body">
                     @if ($errors->has('wrongUserInfo'))
                         <div class="alert alert-danger">
-                            Wrong email or password
+                            Wrong username or password
                         </div>
                     @endif
 
@@ -17,9 +17,9 @@
 
 
                         <div class="form-group">
-                            <label for="email">{{__('words.email')}}</label>
+                            <label for="username">{{__('words.username')}}</label>
                             <input class="form-control"
-                                wire:model="email" type="email" id="email" name="email">
+                                wire:model="username" type="text" id="username" name="username">
                     
                         </div>
 

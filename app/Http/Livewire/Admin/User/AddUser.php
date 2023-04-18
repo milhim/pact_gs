@@ -28,17 +28,10 @@ class AddUser extends Component
     {
 
         $data = $this->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'email|unique:users',
             'password' => 'required|min:5|same:passwordConfirmation',
             'username' => 'required|unique:users',
-            'phone' => 'required|unique:users',
-            'company' => 'required',
-            'city' => 'required',
-            'location' => 'required',
-            'Emp_number' => 'required',
-
-
+            'phone' => 'unique:users',
         ]);
         $user = User::create([
             'name' => $this->name,

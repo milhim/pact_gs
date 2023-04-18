@@ -46,12 +46,18 @@
         <main class="col-md-8 offset-md-4 offset-sm-0 p-2 col-sm-8 ">
             <div class="container">
                 <div class="row">
-                        <a class=" blocks col-md-4 mx-md-3 col-sm-8 my-4" href="{{ route('admin.dashboard.users') }}">
-                            {{ __('words.users') }}
-                        </a>
-                        <a class=" blocks col-md-4 mx-md-3 col-sm-8 my-4" href="{{ route('admin.dashboard.pacts') }}">
-                            {{ __('words.pacts') }}
-                        </a>
+                    <a class=" blocks col-md-4 mx-md-3 col-sm-8 my-4" href="{{ route('admin.dashboard.users') }}">
+                        {{ __('words.users') }} <br>
+                        <small> {{ __('words.usersCountAfter') }} {{ $usersCount }}
+                            {{ __('words.usersCountBefore') }}
+                        </small>
+                    </a>
+                    <a class=" blocks col-md-4 mx-md-3 col-sm-8 my-4" href="{{ route('admin.dashboard.pacts') }}">
+                        {{ __('words.pacts') }} <br>
+                        <small>
+                            {{ __('words.pactsCountAfter') }} {{ $pactsCount }} {{ __('words.pactsCountBefore') }}
+                        </small>
+                    </a>
                 </div>
             </div>
 

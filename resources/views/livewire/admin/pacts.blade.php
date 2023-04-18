@@ -53,10 +53,19 @@
             <div class="row mt-2">
                 <div class="col-12 mb-4">
                     <div class="card mt-5">
+                        <div class="card-header">
+                            <label class="form-label" for="search-pacts">{{ __('words.search') }}</label> <i
+                                class="fa fa-search"></i>
+                            <input wire:model="searchTerm" class="form-control" type="text" id="search-pacts"
+                                placeholder="{{ __('words.enterPactSerialNumber') }}" />
+                        </div>
+                        <div class="card-body">
+
                             <div wire:loading>
 
-                                Processing ...
-
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
                             </div>
 
                             <div class="table-responsive">
@@ -128,12 +137,12 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    {!! $pactsPag->links() !!}
+
                                 </table>
                                 {!! $pactsPag->links() !!}
 
                             </div>
-
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-xl-4">

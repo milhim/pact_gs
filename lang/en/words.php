@@ -13,6 +13,10 @@ return [
     "Don't have an account?" => "Don't have an account?",
     "Allready have an account?" => " Allready have an account?",
     'save' => 'Save',
+    'usersCountAfter'=>'there are ',
+    'usersCountBefore'=>' users in your database',
+    'pactsCountAfter'=>'there are ',
+    'pactsCountBefore'=>' pacts in your database',
 
     'back' => 'Back',
     'more' => 'See More',
@@ -39,7 +43,13 @@ return [
 
     'password' => 'Password',
     'password_confirmation' => 'Password Confirmation',
+
+    'search'=>'Search',
+    'enterUsername'=>'Enter Username',
+
     //pacts
+    'enterPactSerialNumber'=>'Enter Serial Number',
+
     'addpact' => 'Add Pact',
     'editPact' => 'Edit Pact ',
     'deletePact' => 'Delete Pact',
@@ -63,17 +73,7 @@ return [
     'home' => 'Home',
 
 // //validation
-// 'userNameError'=>" The name field is required.",
-// "userPhoneError"=>" The phone field is required. ",
-// "userUserNameError"=>" The username field is required. ",
-// "userLocationError"=>" The location field is required. ",
-// "userCityError"=>" The City field is required. ",
-// "userEmailError"=>" The Email field is required. ",
-// "userCompanyError"=>" The Company field is required. ",
-// "userEmpNumberError"=>" The EmpNumber field is required. ",
-// "userPasswordError1"=>" The password field is required. ",
-// "userPasswordError2"=>" The password field is required. ",
-
+'fieldReqired'=>" This input field is required",
 
 
 

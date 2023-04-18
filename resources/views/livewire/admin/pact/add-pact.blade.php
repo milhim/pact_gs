@@ -22,8 +22,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.dashboard.pacts') }}"
-                            class="nav-link active" href="#">
+                        <a href="{{ route('admin.dashboard.pacts') }}" class="nav-link active" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -49,7 +48,7 @@
 
         <div class="col-md-8 offset-md-3 offset-sm-1 p-2 col-sm-10 ">
             <a href="{{ route('admin.dashboard.pacts') }}" class="btn btn-warning">
-                <i  class="fa fa-arrow-left"></i>
+                <i class="fa fa-arrow-left"></i>
 
                 {{ __('words.back') }}</a>
             <div class="card mt-2">
@@ -59,211 +58,219 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                
+
                                     <div class="form-group">
-                                            <label for="serialNumber">{{__('words.serialNumber')}}</label>
-                                    
-                                        <input class="form-control  @error('serialNumber') border-danger border-2  @enderror"
+                                        <label for="serialNumber">{{ __('words.serialNumber') }}</label> <span class="text-danger">*</span>
+
+                                        <input
+                                            class="form-control  @error('serialNumber') border-danger border-2  @enderror"
                                             wire:model.defer="serialNumber" type="text" id="serialNumber">
                                         @error('serialNumber')
                                             <div class="text-danger fs-6">
-            
-                                                <span>{{ $message }}</span>
-            
+
+                                                <span>{{ __('words.fieldReqired') }}</span>
+
                                             </div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    
                                     <div class="form-group">
-
-                                            <div class="form-group">
-                                                <div class="" wire:ignore>
-                                                        <label for="serialNumber" class="text-end"> {{__('words.users')}}</label>
-                                                                                                        <select class="form-select select2" wire:model.defer='selectedUsers'
-                                                        id='select2' multiple>
-                                                        @foreach ($users as $user)
-                                                            <option value="{{ $user->id }}">{{ $user->name }} </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
+                                        <div class="" wire:ignore>
+                                            <label for="serialNumber" class="text-end">
+                                                {{ __('words.users') }}</label> <span class="text-danger">*</span>
+                                            <select class="form-select select2" wire:model.defer='selectedUsers'
+                                                id='select2' multiple>
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}">{{ $user->username }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                         @error('selectedUsers')
                                             <div class="text-danger fs-6">
-            
-                                                <span>{{ $message }}</span>
-            
+
+                                                <span>{{ __('words.fieldReqired') }}</span>
+
                                             </div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="english-form">
-                                    
+
                                         <div class="form-group">
-                                            <label for="type">Type</label>
-                                            <input class="form-control  @error('type') border-danger border-2  @enderror"
-                                                wire:model.defer="en_type" type="text" id="type">
+                                            <label for="en_type">Type</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control  @error('en_type') border-danger border-2  @enderror"
+                                                wire:model.defer="en_type" type="text" id="en_type">
                                             @error('en_type')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
+
                                         <div class="form-group">
-                                            <label for="model">Model</label>
-                                            <input class="form-control @error('model') border-danger border-2  @enderror"
-                                                wire:model.defer="en_model" type="model" id="model">
+                                            <label for="en_model">Model</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('en_model') border-danger border-2  @enderror"
+                                                wire:model.defer="en_model"  id="en_model">
                                             @error('en_model')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
+
                                         <div class="form-group">
-                                            <label for="accessoar ">Accessoar</label>
-                                            <input class="form-control @error('accessoar') border-danger border-2  @enderror"
-                                                wire:model.defer="en_accessoar" type="text" id="accessoar">
+                                            <label for="en_accessoar ">Accessoar</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('en_accessoar') border-danger border-2  @enderror"
+                                                wire:model.defer="en_accessoar" type="text" id="en_accessoar">
                                             @error('en_accessoar')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="noteOne">First Note</label>
-                                            <input class="form-control @error('noteOne') border-danger border-2  @enderror"
-                                                wire:model.defer="en_noteOne" type="text" id="noteOne">
+                                            <label for="en_noteOne">First Note</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('en_noteOne') border-danger border-2  @enderror"
+                                                wire:model.defer="en_noteOne" type="text" id="en_noteOne">
                                             @error('en_noteOne')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
+
                                         <div class="form-group">
-                                            <label for="noteTwo">Second Note</label>
-                                            <input class="form-control @error('noteTwo') border-danger border-2  @enderror"
-                                                wire:model.defer="en_noteTwo" type="noteTwo" id="noteTwo">
+                                            <label for="en_noteTwo">Second Note</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('en_noteTwo') border-danger border-2  @enderror"
+                                                wire:model.defer="en_noteTwo" id="en_noteTwo">
                                             @error('en_noteTwo')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
+
                                         <div class="form-group">
-                                            <label for="status">Status</label>
-                                            <input class="form-control @error('status') border-danger border-2  @enderror"
-                                                wire:model.defer="en_status" type="status" id="status">
+                                            <label for="en_status">Status</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('en_status') border-danger border-2  @enderror"
+                                                wire:model.defer="en_status" id="en_status">
                                             @error('en_status')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
-            
-                                    </div>                 
+
+
+                                    </div>
                                 </div>
                                 <div class="col-md-6" dir="rtl">
                                     <div class="arabic-form">
-                                        
-                                        <div class="form-group" >
-                                            <label for="type">النوع</label>
-                                            <input class="form-control  @error('type') border-danger border-2  @enderror"
-                                                wire:model.defer="ar_type" type="text" id="type">
+
+                                        <div class="form-group">
+                                            <label for="ar_type">النوع</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control  @error('ar_type') border-danger border-2  @enderror"
+                                                wire:model.defer="ar_type" type="text" id="ar_type">
                                             @error('ar_type')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
+
                                         <div class="form-group">
-                                            <label for="model">الموديل</label>
-                                            <input class="form-control @error('model') border-danger border-2  @enderror"
-                                                wire:model.defer="ar_model" type="model" id="model">
+                                            <label for="ar_model">الموديل</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('ar_model') border-danger border-2  @enderror"
+                                                wire:model.defer="ar_model"  id="ar_model">
                                             @error('ar_model')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
+
                                         <div class="form-group">
-                                            <label for="accessoar ">الاكسسوارات</label>
-                                            <input class="form-control @error('accessoar') border-danger border-2  @enderror"
-                                                wire:model.defer="ar_accessoar" type="text" id="accessoar">
+                                            <label for="ar_accessoar ">الاكسسوارات</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('ar_accessoar') border-danger border-2  @enderror"
+                                                wire:model.defer="ar_accessoar" type="text" id="ar_accessoar">
                                             @error('ar_accessoar')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="noteOne">الملاحظة الأولى</label>
-                                            <input class="form-control @error('noteOne') border-danger border-2  @enderror"
-                                                wire:model.defer="ar_noteOne" type="text" id="noteOne">
+                                            <label for="ar_noteOne">الملاحظة الأولى</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('ar_noteOne') border-danger border-2  @enderror"
+                                                wire:model.defer="ar_noteOne" type="text" id="ar_noteOne">
                                             @error('ar_noteOne')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
+
                                         <div class="form-group">
-                                            <label for="noteTwo">الملاحظة الثانية</label>
-                                            <input class="form-control @error('noteTwo') border-danger border-2  @enderror"
-                                                wire:model.defer="ar_noteTwo" type="noteTwo" id="noteTwo">
+                                            <label for="ar_noteTwo">الملاحظة الثانية</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('ar_noteTwo') border-danger border-2  @enderror"
+                                                wire:model.defer="ar_noteTwo"  id="ar_noteTwo">
                                             @error('ar_noteTwo')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
+
                                         <div class="form-group">
-                                            <label for="status">الحالة</label>
-                                            <input class="form-control @error('status') border-danger border-2  @enderror"
-                                                wire:model.defer="ar_status" type="status" id="status">
+                                            <label for="ar_status">الحالة</label> <span class="text-danger">*</span>
+                                            <input
+                                                class="form-control @error('ar_status') border-danger border-2  @enderror"
+                                                wire:model.defer="ar_status"  id="ar_status">
                                             @error('ar_status')
                                                 <div class="text-danger fs-6">
-            
-                                                    <span>{{ $message }}</span>
-            
+
+                                                    <span>{{ __('words.fieldReqired') }}</span>
+
                                                 </div>
                                             @enderror
                                         </div>
-            
-            
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -284,6 +291,7 @@
         <script>
             $(document).ready(function() {
                 $('#select2').select2();
+
                 $('#select2').on('change', function(e) {
                     var data = $('#select2').select2("val");
                     @this.set('selectedUsers', data);

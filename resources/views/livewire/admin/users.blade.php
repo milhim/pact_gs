@@ -58,8 +58,14 @@
                     <button wire:click='showAddUserForm' class="btn btn-primary"><i class="fa fa-user-plus"></i>
                         {{ __('words.adduser') }} </button>
                     <div class="card mt-5">
-
-                        <div class="table-responsive">
+                        <div class="card-header">
+                            <label class="form-label" for="search-users">{{ __('words.search') }}</label> <i
+                                class="fa fa-search"></i>
+                            <input wire:model="searchTerm" class="form-control" type="text" id="search-users"
+                                placeholder="{{ __('words.enterUsername') }}" />
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
 
                                 @if (session()->has('userAdded'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -95,11 +101,11 @@
                                             User Successfully Added
                                         </div>
                                     </div> --}}
-                                <div wire:loading>
-
-                                    Processing ...
-
-                                </div>
+                                    <div wire:loading>
+                                        <div class="spinner-border" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -145,12 +151,12 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    {!! $usersPaginate->links() !!}
+
                                 </table>
                                 {!! $usersPaginate->links() !!}
 
                             </div>
-
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-xl-4">

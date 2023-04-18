@@ -16,6 +16,12 @@ return [
     'back' => 'العودة للخلف',
     'more' => 'رؤية المزيد',
 
+    'usersCountAfter'=>'يوجد ',
+    'usersCountBefore'=>' مستخدم/مستخدمون في قاعدة البيانات',
+
+    'pactsCountAfter'=>'يوجد ',
+    'pactsCountBefore'=>' عهد/عهود في قاعدة البيانات',
+
     'pact' => 'العهد',
     'users' => 'المستخدمون',
     'pacts' => 'العهود',
@@ -36,7 +42,12 @@ return [
     'createdAt' => 'تاريخ الأضافة',
     'password' => 'كلمة المرور',
     'password_confirmation' => 'تأكيد كلمة المرور',
+    'search'=>'بحث',
+    'enterUsername'=>'ادخل اسم المستخدم',
+
     //Pacts
+    'enterPactSerialNumber'=>'ادخل رقم العهد التسلسلي',
+
     'addpact' => 'إضافة عهد',
     'editPact' => 'تعديل العهد',
     'deletePact' => 'حذف العهد',
@@ -60,6 +71,8 @@ return [
     'saveSuccess' => 'تم الحفظ بنجاح',
     'myPacts' => 'العهود الخاصة بي',
     'home' => 'الرئيسية',
+//validation
+'fieldReqired'=>" هذا الحقل مطلوب",
 
 
 

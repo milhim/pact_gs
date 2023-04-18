@@ -19,6 +19,8 @@ class Users extends Component
     public $addUserForm = false;
     public $usersTable = true;
     public $editForm = false;
+    
+    public $searchTerm="";
 
 
     public function back()
@@ -74,9 +76,10 @@ class Users extends Component
     }
     public function render()
     {
+        // orderBy('created_at','desc')->paginate(4)
         return view(
             'livewire.admin.users',
-            ['usersPaginate' => User::orderBy('created_at','desc')->paginate(4),]
+            ['usersPaginate' => User::where('username','like','%'.$this->searchTerm.'%')->orderBy('created_at','desc')->paginate(4),]
         );
     }
 }

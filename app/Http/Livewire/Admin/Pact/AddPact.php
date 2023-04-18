@@ -80,7 +80,6 @@ class AddPact extends Component
 
         return redirect()->route('admin.dashboard.pacts')->with( ['showP' =>true] );
     }
-
     public function mount()
     {
         $this->users = User::all();

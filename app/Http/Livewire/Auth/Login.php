@@ -8,23 +8,23 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $email = '';
+    public $username = '';
     public $password = '';
     public function login()
     {
         $data = $this->validate([
-            'email' => 'required|email',
+            'username' => 'required',
             'password' => 'required',
 
         ]);
         $success = auth('web')->attempt([
-            'email' => $this->email,
+            'username' => $this->username,
             'password' => $this->password,
         ], request()->has('remember'));
         if ($success) {
             return redirect()->route('user.home');
         }
-        $this->addError('wrongUserInfo', 'Wrong email or password');
+        $this->addError('wrongUserInfo', 'Wrong username or password');
         return redirect()->back();
     }
     public function render()

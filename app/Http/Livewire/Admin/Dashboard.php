@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Pact;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
@@ -21,7 +22,11 @@ class Dashboard extends Component
     {
 
         return view(
-            'livewire.admin.dashboard'
+            'livewire.admin.dashboard',[
+                'usersCount'=>User::all()->count(),
+                'pactsCount'=>Pact::all()->count(),
+
+            ]
         );
     }
 }
